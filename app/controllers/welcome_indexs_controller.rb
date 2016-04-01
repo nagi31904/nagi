@@ -1,5 +1,8 @@
 class WelcomeIndexsController < ApplicationController
-  before_action :set_bookmark, :only => [ :index ,:show, :edit, :update, :destroy]
+  before_action :set_bookmark, :only => [ :blog_index ,:show, :edit, :update, :destroy]
+  def blog_index
+
+  end
 
 
   private

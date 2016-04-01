@@ -7,7 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header class="row">
+  <div class="ti">
+    <h1>NAGI</h1>
+  </div>
+</header>
+<div class="bookmark">
+  <ul class="list-inline list-unstyled">
+    <li><%= link_to "Home" ,root_path %></li>
+    <li><%= link_to "News" ,root_path %></li>
+    <li><%= link_to "Work" ,root_path %></li>
+    <li><%= link_to "Abouts" ,root_path %></li>
+    <li><%= link_to "Blog" ,root_path %></li>
+  </ul>
+</div>
+<HR size="2"  width="80%">
 <%= yield %>
 
 </body>

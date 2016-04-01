@@ -5,3 +5,8 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+Bookmark.create( :name => "Home" )
+Bookmark.create( :name => "News" )
+Bookmark.create( :name => "Work" )
+Bookmark.create( :name => "Abouts" )
+Bookmark.create( :name => "Blog" )
