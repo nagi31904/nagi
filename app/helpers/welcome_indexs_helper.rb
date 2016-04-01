@@ -1,0 +1,2 @@
+module WelcomeIndexsHelper
+end
