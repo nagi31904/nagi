@@ -19,9 +19,13 @@ class CommentsController < ApplicationController
       @comment.user_id = current_user.id
 
       if @comment.save
-        redirect_to :back
+        respond_to do |format|
+          format.js # create.js.erb
+        end
       else
-        render :action => :new
+        respond_to do |format|
+          format.js # create.js.erb
+        end
       end
     end
   end

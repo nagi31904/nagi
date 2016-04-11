@@ -1,0 +1,30 @@
+<div id="comment-<%= comment.id %>">
+  <div class="center row hi">
+    <div class="col-md-4 center text">
+    </div>
+    <div class="col-md-2 center">
+    </div>
+    <div class="col-md-2 center">
+    </div>
+    <div class="col-md-4 center">
+      <% if current_user == comment.user %>
+          <%= link_to 'edit', edit_post_comment_path(@post, comment), :class => "btn btn-default" %>
+          <%= link_to 'D belete', post_comment_path(@post, comment, :page => @page), :remote => true, :method => :delete, :class => "btn btn-danger" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="center row hi">
+    <div class="col-md-4 center text">
+      <%= simple_format(comment.description) %>
+    </div>
+    <div class="col-md-4 center">
+      <% if comment.user.email != nil %>
+          <%= comment.user.email %>
+      <% end %>
+    </div>
+    <div class="col-md-4 center">
+      <%= comment.updated_at %>
+    </div>
+
+  </div>
+</div>
