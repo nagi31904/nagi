@@ -48,7 +48,7 @@ class WorkCategoriesController < ApplicationController
 
   private
   def work_category_params
-    params.require(:work_category).permit(:title)
+    params.require(:work_category).permit(:title,:logo)
   end
   def set_work_category
     @work_category = WorkCategory.find(params[:id])

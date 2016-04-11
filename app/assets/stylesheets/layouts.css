@@ -144,7 +144,6 @@ body {
 .workcate {
 
     background-color: #999999;
-    padding: 10% 0 10% 0;
     height: 200px;
 
 }
@@ -152,7 +151,6 @@ body {
 .workcate1 {
 
     background-color: #666666;
-    padding: 10% 0 10% 0;
     height: 200px;
 
 }
@@ -190,4 +188,15 @@ body {
     padding: 1% 1% 1% 5%;
     margin: 0 auto;
     overflow: scroll;
+}
+.workpice{
+    height: 200px;
+    overflow: hidden;
+}
+.word{
+    float: inherit;
+    padding: 10% 0 10% 0;
+}
+.ma{
+    margin: 2% 44%;
 }
