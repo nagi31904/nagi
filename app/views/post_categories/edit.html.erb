@@ -1,0 +1,10 @@
+<div class="texta center titl cco">
+  <h1>edit</h1>
+</div>
+<div class="center">
+  <%= form_for @post_category, :url => post_category_path(@post_category), :method => :patch do |f| %>
+      <%= render :partial => 'form', :locals => { :f => f } %>
+      <%= f.submit "Update"  ,:class => "btn btn-default"%>
+      <%= link_to "back to show", post_categories_path  ,:class => "btn btn-default"%>
+  <% end %>
+</div>

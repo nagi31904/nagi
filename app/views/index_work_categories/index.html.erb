@@ -1,0 +1,26 @@
+<div class="ti2 titl row">
+
+  <h1>WORK</h1>
+
+</div>
+<div class="BT">
+  <ul class="list-inline list-unstyled">
+    <li>
+      <%= link_to 'category', work_categories_path, :class => "btn btn-default" %>
+    </li>
+  </ul>
+</div>
+<div class="row workar">
+  <div class="sp col-md-1"></div>
+  <div class="col-md-10 row cco cate">
+    <% @work_categories.each do |work_category| %>
+        <div class="workcate center">
+          <% tit = work_category.title %>
+          <%= link_to tit, work_posts_path(:work_category_id => work_category.id) %>
+        </div>
+        <div class="spp"></div>
+    <% end %>
+
+
+  </div>
+</div>

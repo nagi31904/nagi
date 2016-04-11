@@ -1,0 +1,118 @@
+<div class="ti2 titl row">
+
+  <h1>WORK</h1>
+
+</div>
+<div class="BT">
+  <ul class="list-inline list-unstyled">
+    <li>
+      <%= link_to 'category', index_work_categories_path, :class => "btn btn-default" %>
+    </li>
+  </ul>
+</div>
+<div class="row workar">
+  <div class="sp col-md-1"></div>
+  <div class="col-md-10 row cco cate">
+    <div class="pw">
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+
+      <div class="col-md-4 port row center">
+
+        <div class="pic">
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+    <% @work_posts.each do |post| %>
+        <div class="row hi">
+          <div class="col-md-4 center">
+            <%= link_to post.title, work_post_path(post, :page => params[:page]) %>
+          </div>
+          <div class="col-md-4 center">
+            <% post.work_categories.each do |cate| %>
+                -<%= cate.title %>-
+            <% end %>
+          </div>
+          <div class="col-md-4 center">
+            <%= post.created_at %>
+          </div>
+
+        </div>
+    <% end %>
+
+
+  </div>
+</div>

@@ -1,0 +1,193 @@
+body {
+
+    font-family: 'Orbitron', sans-serif;
+    background-color: lightslategrey;
+}
+
+.ti {
+    text-align: center;
+}
+
+.bookmark {
+    text-align: center;
+}
+
+.ti h1 {
+    text-align: center;
+    font-size: 600%;
+    color: #EFEFEF;
+}
+
+.li-con li {
+    width: 200px;
+}
+
+.bg {
+
+}
+
+.BT {
+    width: 90%;
+    text-align: right;
+}
+
+.center {
+    text-align: center;
+}
+
+.cco {
+    color: #EFEFEF;
+}
+
+.hi {
+    padding: 3% 0 1% 0;
+}
+
+.tt {
+    padding: 5% 0 0 0;
+}
+
+.bar {
+    padding: 1% 0 1% 0;
+}
+
+.titl {
+    padding: 1% 0 1% 0;
+}
+
+.line {
+    padding: 1% 0 0% 0;
+}
+
+.text {
+    word-wrap: break-word;
+}
+
+.comment {
+    padding: 1% 0 0% 0;
+}
+
+.con1 {
+
+    height: 650px;
+}
+
+.con2 {
+
+    height: 650px;
+}
+
+.con3 {
+
+    height: 400px;
+}
+
+.con4 {
+    height: 250px;
+}
+
+.z {
+    padding: 1% 0 1% 0;
+    font-size: 150%;
+}
+
+.bar {
+    padding: 2% 0 3% 0;
+}
+
+.bar1 {
+    padding: 2% 0 1% 0;
+    height: 300px;
+    overflow: scroll;
+
+}
+
+.bar2 {
+    padding: 3% 0 1% 0;
+    height: 200px;
+    overflow: scroll;
+
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.dd {
+    height: 300px;
+}
+
+.bar3 {
+    padding: 3% 0 0 0;
+
+    height: 500px;
+    overflow: scroll;
+
+}
+
+.bar4 {
+    padding: 3% 0 0 0;
+
+    height: 500px;
+    overflow: scroll;
+
+}
+
+.bar5 {
+    padding: 3% 0 0 0;
+
+    height: 500px;
+    overflow: scroll;
+
+}
+
+.workcate {
+
+    background-color: #999999;
+    padding: 10% 0 10% 0;
+    height: 200px;
+
+}
+
+.workcate1 {
+
+    background-color: #666666;
+    padding: 10% 0 10% 0;
+    height: 200px;
+
+}
+
+.spp {
+    height: 10px;
+}
+
+.workar {
+    padding: 1% 0 1% 0;
+}
+
+.cate {
+    font-size: 150%;
+}
+
+.port {
+    background-color: #730E15;
+    height: 400px;
+    width: 28%;
+    margin: 2% 2% 2% 2%;
+}
+
+.pic {
+
+    background-color: #666666;
+    height: 280px;
+    width: 210px;
+    margin: 5% auto 3% auto;
+
+}
+.pw{
+
+    height: 1500px;
+    padding: 1% 1% 1% 5%;
+    margin: 0 auto;
+    overflow: scroll;
+}

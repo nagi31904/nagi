@@ -1,0 +1,53 @@
+<div class="bg cco">
+  <div class="ti2 titl center">
+
+      <h1>INFO</h1>
+
+  </div>
+</div>
+<div class="BT cco">
+  <ul class="list-inline list-unstyled">
+    <li>
+      <%= link_to 'New post', new_info_path, :class => "btn btn-default" %>
+    </li>
+  </ul>
+</div>
+<div class="center container cco">
+  <div class="center ">
+    <div class="row hi center">
+      <div class="col-md-2 center">
+        CATEGORY
+      </div>
+      <div class="col-md-2 center">
+        TITLE
+      </div>
+      <div class="col-md-6 center">
+        Introduction
+      </div>
+      <div class="col-md-2 center">
+        RELEASE TIME
+      </div>
+
+
+    </div>
+    <div class="bar5">
+      <% @infos.each do |info| %>
+          <div class="center row hi">
+            <div class="col-md-2 center">
+              類別
+            </div>
+            <div class="col-md-2 center">
+              <%= link_to info.title, info_path(info, :page => params[:page]) %>
+            </div>
+            <div class="col-md-6 text">
+              <%= info.description %>
+            </div>
+            <div class="col-md-2 center">
+              時間
+            </div>
+
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>

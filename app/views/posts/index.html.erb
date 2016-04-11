@@ -1,0 +1,71 @@
+<div class="ti2 titl cco center">
+
+    <h1>BLOG</h1>
+
+</div>
+<div class="BT">
+  <ul class="list-inline list-unstyled">
+    <li>
+      <%= link_to 'New post', new_post_path, :class => "btn btn-default" %>
+    </li>
+    <li>
+      <%= link_to 'category', post_categories_path, :class => "btn btn-default" %>
+    </li>
+  </ul>
+</div>
+
+<div class="center container cco">
+  <div class="row hi center">
+    <div class="col-md-2 center">
+      TITLE
+    </div>
+    <div class="col-md-2 center">
+      CATEGORY
+    </div>
+    <div class="col-md-2 center">
+      RELEASE TIME
+    </div>
+    <div class="col-md-2 center">
+      COUNT COMMENT
+    </div>
+    <div class="col-md-2 center">
+      LAST COMMENT TIME
+    </div>
+    <div class="col-md-2 center">
+      LAST COMMENT USER
+    </div>
+
+  </div>
+  <div class="center bar3">
+
+    <% @posts.each do |post| %>
+        <div class="row hi">
+          <div class="col-md-2 center">
+            <%= link_to post.title, post_path(post, :page => params[:page]) %>
+          </div>
+          <div class="col-md-2 center">
+            <% post.post_categories.each do |cate| %>
+                -<%= cate.title %>-
+            <% end %>
+          </div>
+          <div class="col-md-2 center">
+            <%= post.created_at %>
+          </div>
+          <div class="col-md-2 center">
+            <%= post.comments_count %>
+          </div>
+          <div class="col-md-2 center">
+            <% if post.comments.last %>
+                <%= post.comments.last.created_at %>
+            <% end %>
+          </div>
+          <div class="col-md-2 center">
+            <% if post.comments.last %>
+                <%= post.comments.last.user.email %>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+
+  </div>
+</div>

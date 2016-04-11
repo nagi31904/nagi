@@ -2,27 +2,50 @@
 <html>
 <head>
   <title>Nagi</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+  <div class="center col-md-4">
+    <% if current_user %>
+        <%= link_to('SING OUT', destroy_user_session_path, :method => :delete) %> |
+        <%= link_to('CHANGE PASSWORD', edit_registration_path(:user)) %>
+    <% else %>
+        <%= link_to('SIGN UP', new_registration_path(:user)) %> |
+        <%= link_to('SIGN IN', new_session_path(:user)) %>
+    <% end %>
+  </div>
 </head>
 <body>
-<header class="row">
-  <div class="ti">
-    <h1>NAGI</h1>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<div class="bg">
+  <header class="row">
+
+  </header>
+  <div class="row">
+    <div class="ti">
+      <h1><%= link_to "NAGI", root_path %></h1>
+    </div>
   </div>
-</header>
-<div class="bookmark">
-  <ul class="list-inline list-unstyled">
-    <li><%= link_to "Home" ,root_path %></li>
-    <li><%= link_to "News" ,root_path %></li>
-    <li><%= link_to "Work" ,root_path %></li>
-    <li><%= link_to "Abouts" ,root_path %></li>
-    <li><%= link_to "Blog" ,root_path %></li>
-  </ul>
+
+  <div class="bookmark">
+
+    <ul class="list-inline list-unstyled li-con">
+      <li><%= link_to "Home", root_path %></li>
+      <li><%= link_to "Info", infos_path %></li>
+      <li><%= link_to "Work", index_work_categories_path %></li>
+      <li><%= link_to "Abouts", abouts_path %></li>
+      <li><%= link_to "Blog", posts_path %></li>
+    </ul>
+  </div>
+  <HR size="4" width="85%">
+  <%= yield %>
+  <div class="line">
+    <HR size="4" width="85%">
+  </div>
 </div>
-<HR size="2"  width="80%">
-<%= yield %>
 
 </body>
 </html>

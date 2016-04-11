@@ -1,1 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="con1 col-md-6">
+      <div class="div col-md-1"></div>
+      <div class="con2 col-md-11 center cco">
+        <div class="z">
+          IMAGE
+        </div>
+      </div>
+    </div>
+    <div class="con2 col-md-6">
+      <div class="t col-md-11">
+        <div class="con3 cco center text">
+          <div class="z">
+            NEW_INFO
+          </div>
+          <div class="bar1">
+            <% @infos.each do |info| %>
+                <p class="center row hi">
+                <div class="col-md-4 center ">
+                  <%= info.created_at %>
+                </div>
+                <div class="col-md-7 center">
+                  <%= link_to info.title, info_path(info, :page => params[:page]) %>
+                </div>
+                </p>
+            <% end %>
+          </div>
 
+        </div>
+
+        <div class="con4 cco center text">
+          <div class="z">
+            NEW_COMMNET_POST
+          </div>
+          <div class="bar2">
+            <% @posts.each do |post| %>
+                <p class="center row hi">
+                <div class="col-md-4 center ">
+                  <%= link_to post.title, post_path(post, :page => params[:page]) %>
+                </div>
+                <div class="col-md-7 center">
+                  <%= post.description %>
+                </div>
+                </p>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

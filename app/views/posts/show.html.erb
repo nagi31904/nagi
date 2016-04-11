@@ -1,0 +1,93 @@
+<div class="center">
+  <div class="titl cco center">
+    <h2>
+      <%= @post.title %>
+    </h2>
+  </div>
+  <div class="row bar cco">
+    <div class="center col-md-4">
+      <div class="ww">
+        <% @post.post_categories.each do |g| %>
+            - <%= g.title %> -
+        <% end %>
+      </div>
+      <div class="ww">
+        - <%= @post.created_at %> -
+      </div>
+      類別,狀態
+    </div>
+    <div class="center col-md-4">
+
+    </div>
+    <div class="col-md-4">
+      <%= link_to 'edit', edit_post_path(@post), :class => "btn btn-default" %>
+      <%= link_to 'Delete', post_path(@post, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
+
+    </div>
+  </div>
+  <div class="row cco">
+    <div class="center col-md-2">
+
+    </div>
+    <div class="center col-md-8">
+      <div class="de text">
+        <%= @post.description %>
+      </div>
+    </div>
+    <div class="col-md-2">
+
+    </div>
+  </div>
+  <div class="tit2 cco">
+    <h2>
+      <%= "COMMENT" %>
+    </h2>
+  </div>
+  <div class="comment cco">
+    <div class="center container">
+      <div id="comments-list" class="center">
+
+          <% @comments.each do |comment| %>
+              <div class="center row hi">
+                <div class="col-md-4 center text">
+                </div>
+                <div class="col-md-2 center">
+                </div>
+                <div class="col-md-2 center">
+                </div>
+                <div class="col-md-4 center">
+                  <% if current_user == comment.user %>
+                      <%= link_to 'edit', edit_post_comment_path(@post, comment), :class => "btn btn-default" %>
+                      <%= link_to 'D belete', post_comment_path(@post, comment, :page => @page),:remote => true, :method => :delete, :class => "btn btn-danger" %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="center row hi">
+                <div class="col-md-4 center text">
+                  <%= simple_format(comment.description) %>
+                </div>
+                <div class="col-md-4 center">
+                  <% if comment.user.email != nil %>
+                      <%= comment.user.email %>
+                  <% end %>
+                </div>
+                <div class="col-md-4 center">
+                  <%= comment.updated_at %>
+                </div>
+
+              </div>
+          <% end %>
+
+      </div>
+    </div>
+  </div>
+  <div class="tt">
+    <div class="center">
+      <div class="center ">
+        <%= form_for @comment, :url => post_comments_path(@post) do |f| %>
+            <%= render :partial => 'comment_form', :locals => {:f => f} %>
+            <%= f.submit "Create", :class => "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>

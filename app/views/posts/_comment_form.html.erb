@@ -1,0 +1,16 @@
+<div class="form-group">
+  <div class="cco">
+    <%= f.label :description, "Description" %>
+  </div>
+  <%= f.text_area :description %>
+</div>
+
+
+
+<% if @comment.errors.any? %>
+    <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+    </ul>
+<% end %>

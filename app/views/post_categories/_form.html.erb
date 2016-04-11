@@ -1,0 +1,16 @@
+<div class="form-group">
+  <div class="cco">
+    <%= f.label :title, "title" %>
+  </div>
+  <%= f.text_field :title %>
+</div>
+
+
+
+<% if @post_category.errors.any? %>
+    <ul>
+      <% @post_category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+    </ul>
+<% end %>

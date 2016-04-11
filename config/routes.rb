@@ -1,7 +1,18 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root :to => "welcome_indexs#blog_index"
   resources :bookmarks
+  resources :work_posts
+  resources :abouts
+  resources :posts do
+    resources :comments
+  end
+  resources :infos
+  resources :post_categories
+  resources :work_categories
+  resources :index_work_categories
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
