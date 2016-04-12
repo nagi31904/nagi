@@ -1,5 +1,5 @@
 class AddVidioToWorkPost < ActiveRecord::Migration
   def change
-    add_column :work_posts, :vedio_url, :string
+    add_column :work_posts, :ved, :string
   end
 end

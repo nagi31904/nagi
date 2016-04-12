@@ -1,18 +1,18 @@
 <div class="center">
   <div class="titl cco center">
     <h2>
-      <%=  @work_post.title %>
+      <%= @work_post.title %>
     </h2>
   </div>
   <div class="row bar cco">
     <div class="center col-md-4">
       <div class="ww">
-        <%  @work_post.work_categories.each do |g| %>
+        <% @work_post.work_categories.each do |g| %>
             - <%= g.title %> -
         <% end %>
       </div>
       <div class="ww">
-        - <%=  @work_post.created_at %> -
+        - <%= @work_post.created_at %> -
       </div>
       類別,狀態
     </div>
@@ -26,20 +26,32 @@
 
     </div>
   </div>
-  <div class="row cco">
-    <div class="center col-md-2">
+  <div class="cco">
 
-    </div>
-    <div class="center col-md-8 hidd">
-      <div class="center hidd">
-        <%= image_tag(@work_post.img.url) %>
+    <div class="center  hidd">
+      <div class="center hidd ">
+
+
+        <% if @work_post.img.exists? && @work_post.ved? %>
+            <%= image_tag(@work_post.img.url) %>
+            <div class="video-container">
+              <iframe width="560" height="315" src=<%= @work_post.ved %> frameborder="0" allowfullscreen></iframe>
+            </div>
+        <% elsif @work_post.img.exists? %>
+            <%= image_tag(@work_post.img.url) %>
+        <% elsif @work_post.ved? %>
+            <div class="video-container">
+              <iframe width="560" height="315" src=<%= @work_post.ved %> frameborder="0" allowfullscreen></iframe>
+            </div>
+        <% else %>
+
+        <% end %>
+
       </div>
       <div class="de text">
-        <%=  @work_post.description %>
+        <%= @work_post.description %>
       </div>
     </div>
-    <div class="col-md-2">
 
-    </div>
   </div>
 </div>

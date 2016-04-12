@@ -3,6 +3,11 @@
   <h1>WORK</h1>
 
 </div>
+<div class="texta center titl cco">
+  <h2>
+    ~ <%= @work_category.title %> ~
+  </h2>
+</div>
 <div class="BT">
   <ul class="list-inline list-unstyled">
     <li>
@@ -19,12 +24,18 @@
           <div class="col-md-4 port center sss">
 
             <div class="pic">
-              <% if post.img.exists? %>
+              <% if post.img.exists? && post.ved? %>
                   <% tit = image_tag(post.img.url(:medium)) %>
+                  <%= link_to tit, work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]) %>
+              <% elsif post.img.exists? %>
+                  <% tit = image_tag(post.img.url(:medium)) %>
+                  <%= link_to tit, work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]) %>
+              <% elsif post.ved? %>
+                  <iframe width="280" height="157" src=<%= post.ved %> frameborder="0" allowfullscreen></iframe>
               <% else %>
 
               <% end %>
-              <%= link_to tit, work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]) %>
+
             </div>
 
             <div class="col-md-4 center imatitle">

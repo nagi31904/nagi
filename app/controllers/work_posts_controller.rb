@@ -6,6 +6,7 @@ class WorkPostsController < ApplicationController
   def index
     @work_categories = @work_category
     @work_posts = WorkCategory.find(params[:work_category_id]).work_posts
+    @work_posts= @work_posts.order(created_at: :desc)
   end
   def new
 
@@ -65,7 +66,7 @@ class WorkPostsController < ApplicationController
     @work_category = WorkCategory.all
   end
   def work_post_params
-    params.require(:work_post).permit(:title, :description,:img, :work_category_ids =>[])
+    params.require(:work_post).permit(:title, :description,:img,:ved, :work_category_ids =>[])
   end
 
   def set_work_post

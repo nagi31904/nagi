@@ -4,8 +4,13 @@ class WelcomeIndexsController < ApplicationController
   before_action :set_info, :only => [ :blog_index ,:show, :edit, :update, :destroy]
   before_action :set_comment, :only => [ :blog_index ,:show, :edit, :update, :destroy]
   def blog_index
-    @infos = @infos.order(created_at: :desc)
-    @posts = @posts.order(updated_at: :desc)
+
+    @work_category = WorkCategory.find_by_title("ills")
+    @work_posts = WorkCategory.find_by_title("ills").work_posts
+    @work_posts= @work_posts.order(created_at: :desc).limit(9)
+
+    @infos = @infos.order(created_at: :desc).limit(6)
+    @posts = @posts.order(updated_at: :desc).limit(6)
 
   end
 
@@ -23,4 +28,5 @@ class WelcomeIndexsController < ApplicationController
   def set_comment
     @comments = Comment.all
   end
+
 end
