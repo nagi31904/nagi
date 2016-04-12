@@ -1,0 +1,31 @@
+<div class="form-group ">
+  <div class="cco">
+    <%= f.label :title, "TITLE" %>
+  </div>
+  <%= f.text_field :title %>
+</div>
+<div class="form-group">
+  <div class="cco">
+    <%= f.label :description, "Description" %>
+  </div>
+  <%= f.text_area :description %>
+</div>
+<div class="form-group">
+  <div class="cco">
+    <%= f.label :description, "Description" %>
+  </div>
+  <%= f.text_area :description %>
+</div>
+<div class="cco center log ma">
+  <%= f.file_field :img %>
+</div>
+
+<%= f.collection_check_boxes(:work_category_ids, WorkCategory.all, :id, :title) %>
+
+<% if @work_post.errors.any? %>
+    <ul>
+      <% @work_post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+      <% end %>
+    </ul>
+<% end %>

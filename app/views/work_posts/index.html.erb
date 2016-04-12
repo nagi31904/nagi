@@ -7,42 +7,40 @@
   <ul class="list-inline list-unstyled">
     <li>
       <%= link_to 'category', index_work_categories_path, :class => "btn btn-default" %>
-      <%= link_to 'c work', new_work_post_path, :class => "btn btn-default" %>
+      <%= link_to 'c work', new_work_post_path(:work_category_id => params[:work_category_id]), :class => "btn btn-default" %>
     </li>
   </ul>
 </div>
 <div class="row workar">
   <div class="sp col-md-1"></div>
-  <div class="col-md-10 row cco cate">
+  <div class="col-md-10 row cco ">
     <div class="pw">
-      <div class="col-md-4 port row center">
+      <% @work_posts.each do |post| %>
+          <div class="col-md-4 port center sss">
 
-        <div class="pic">
+            <div class="pic">
+              <% if post.img.exists? %>
+                  <% tit = image_tag(post.img.url(:medium)) %>
+              <% else %>
 
-        </div>
+              <% end %>
+              <%= link_to tit, work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]) %>
+            </div>
 
-      </div>
+            <div class="col-md-4 center imatitle">
+              <%= link_to post.title, work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]) %>
+            </div>
+            <p class="col-md-4 center imatime">
+              <%= post.created_at %>
+            </p>
 
+          </div>
+
+      <% end %>
 
     </div>
 
-    <% @work_posts.each do |post| %>
-        <div class="row hi">
-          <div class="col-md-4 center">
-            <%= link_to post.title, work_post_path(post, :page => params[:page]) %>
-          </div>
-          <div class="col-md-4 center">
-            <% post.work_categories.each do |cate| %>
-                -<%= cate.title %>-
-            <% end %>
-          </div>
-          <div class="col-md-4 center">
-            <%= post.created_at %>
-          </div>
-
-        </div>
-    <% end %>
-
 
   </div>
+</div>
 </div>

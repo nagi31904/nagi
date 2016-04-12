@@ -16,7 +16,7 @@
     <% @work_categories.each do |work_category| %>
         <div class="workcate center workpice">
           <% if work_category.logo.exists? %>
-              <% tit= image_tag( work_category.logo.url ) %>
+              <% tit = image_tag( work_category.logo.url ) %>
           <% else %>
               none
           <% end %>
