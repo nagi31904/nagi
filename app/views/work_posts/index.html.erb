@@ -8,14 +8,16 @@
     ~ <%= @work_category.title %> ~
   </h2>
 </div>
-<div class="BT">
-  <ul class="list-inline list-unstyled">
-    <li>
-      <%= link_to 'category', index_work_categories_path, :class => "btn btn-default" %>
-      <%= link_to 'c work', new_work_post_path(:work_category_id => params[:work_category_id]), :class => "btn btn-default" %>
-    </li>
-  </ul>
-</div>
+<% if current_user != nil && current_user.admin == true %>
+    <div class="BT">
+      <ul class="list-inline list-unstyled">
+        <li>
+          <%= link_to 'category', index_work_categories_path, :class => "btn btn-default" %>
+          <%= link_to 'c work', new_work_post_path(:work_category_id => params[:work_category_id]), :class => "btn btn-default" %>
+        </li>
+      </ul>
+    </div>
+<% end %>
 <div class="row workar">
   <div class="sp col-md-1"></div>
   <div class="col-md-10 row cco ">

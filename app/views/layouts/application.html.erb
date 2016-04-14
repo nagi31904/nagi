@@ -14,11 +14,15 @@
         <%= link_to('SIGN UP', new_registration_path(:user)) %> |
         <%= link_to('SIGN IN', new_session_path(:user)) %>
     <% end %>
+    <%= time_zone_select :user, :time_zone %>
   </div>
+
 </head>
 <body>
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
 
 <div class="bg">
   <header class="row">

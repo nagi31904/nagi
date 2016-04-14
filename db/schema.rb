@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412014944) do
+ActiveRecord::Schema.define(version: 20160413123406) do
 
   create_table "abouts", force: :cascade do |t|
     t.string   "title"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20160412014944) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "likes", ["post_id"], name: "index_likes_on_post_id"
+  add_index "likes", ["user_id"], name: "index_likes_on_user_id"
 
   create_table "post_categories", force: :cascade do |t|
     t.string   "title"
@@ -75,6 +85,8 @@ ActiveRecord::Schema.define(version: 20160412014944) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.boolean  "admin"
+    t.string   "time_zone"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

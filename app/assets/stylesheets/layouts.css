@@ -1,9 +1,25 @@
 body {
 
     font-family: 'Orbitron', sans-serif;
-    background-color: lightslategrey;
-}
 
+    background-image: url(https://i.ytimg.com/vi/vV6JpyUlLXc/maxresdefault.jpg);
+    opacity: 1;
+
+   background-color: black;
+
+
+}
+.test{
+
+}
+.vedio{
+    height: 400px;
+
+    overflow: hidden;
+}
+.u{
+    margin: 1% 1%;
+}
 .ti {
     text-align: center;
 }
@@ -15,6 +31,12 @@ body {
 .ti h1 {
     text-align: center;
     font-size: 600%;
+    color: #EFEFEF;
+}
+h2{
+    color: #EFEFEF;
+}
+label{
     color: #EFEFEF;
 }
 

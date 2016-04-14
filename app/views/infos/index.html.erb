@@ -1,17 +1,19 @@
 <div class="bg cco">
   <div class="ti2 titl center">
 
-      <h1>INFO</h1>
+    <h1>INFO</h1>
 
   </div>
 </div>
-<div class="BT cco">
-  <ul class="list-inline list-unstyled">
-    <li>
-      <%= link_to 'New post', new_info_path, :class => "btn btn-default" %>
-    </li>
-  </ul>
-</div>
+<% if current_user != nil && current_user.admin == true %>
+    <div class="BT cco">
+      <ul class="list-inline list-unstyled">
+        <li>
+          <%= link_to 'New post', new_info_path, :class => "btn btn-default" %>
+        </li>
+      </ul>
+    </div>
+<% end %>
 <div class="center container cco">
   <div class="center ">
     <div class="row hi center">

@@ -10,7 +10,9 @@ class WelcomeIndexsController < ApplicationController
     @work_posts= @work_posts.order(created_at: :desc).limit(9)
 
     @infos = @infos.order(created_at: :desc).limit(6)
+
     @posts = @posts.order(updated_at: :desc).limit(6)
+    @work_post_first = @work_posts.first
 
   end
 

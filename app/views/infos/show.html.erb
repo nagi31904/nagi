@@ -11,10 +11,12 @@
     <div class="center col-md-4">
 
     </div>
-    <div class="col-md-4">
-      <%= link_to 'edit', edit_info_path(@info), :class => "btn btn-default" %>
-      <%= link_to 'Delete', info_path(@info, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
-    </div>
+    <% if current_user != nil && current_user.admin == true %>
+        <div class="col-md-4">
+          <%= link_to 'edit', edit_info_path(@info), :class => "btn btn-default" %>
+          <%= link_to 'Delete', info_path(@info, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
+        </div>
+    <% end %>
   </div>
   <div class="row">
     <div class="center col-md-2">

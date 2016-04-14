@@ -1,0 +1,30 @@
+.about{
+    height: 880px;
+    width: 80%;
+    background-color: #BBBBBB;
+    position: relative;
+}
+.pp{
+    position: absolute;
+    background-color: wheat;
+    height: 500px;
+    width: 450px;
+    margin: 3% 3% 3% 3%;
+}
+.bb{
+    position: absolute;
+    background-color: #730E15;
+    height: 500px;
+    width: 600px;
+    margin: 3% 45% 3% 45%;
+}
+.cc{
+    position: absolute;
+    background-color: #730E15;
+    height: 280px;
+    width: 1083px;
+    margin: 48% 3% 48% 3% ;
+}
+.bbc{
+    text-align: right;
+}

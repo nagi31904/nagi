@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :abouts
   resources :posts do
     resources :comments
+    resources :likes
   end
   resources :infos
   resources :post_categories
