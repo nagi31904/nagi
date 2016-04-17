@@ -1,0 +1,34 @@
+<div class="center">
+
+  <h1 class="cco">Edit your profile</h1>
+
+
+  <%= form_for @user do |f| %>
+      <div class=" pa">
+
+        <%= f.label :first_name, "FINAL_NAME：" %>
+
+        <%= f.text_field :first_name %>
+      </div>
+      <div class=" pa">
+
+        <%= f.label :last_name, "LAST_NAME：" %>
+
+        <%= f.text_field :last_name %>
+      </div>
+      <div class=" pa">
+        <%= f.label :description, "Description：" %>
+
+        <%= f.text_area :description %>
+
+      </div>
+      <div class=" pa">
+
+        <%= f.time_zone_select :time_zone %>
+
+        <%= f.submit %>
+      </div>
+
+
+  <% end %>
+</div>

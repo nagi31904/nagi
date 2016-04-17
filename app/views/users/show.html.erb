@@ -1,0 +1,69 @@
+<div class="ti2 titl clearfix">
+  <div class="sp col-md-1"></div>
+  <div class="col-md-10 row ">
+    <h1>
+      <% if @user.first_name && @user.last_name %>
+          <%= @user.first_name+" "+ @user.last_name %>
+      <% else %>
+          <%= @user.display_name %>
+      <% end %>
+    </h1>
+  </div>
+</div>
+
+<div class="row center cco">
+  <div class="about test row center">
+    <ul class="list-inline list-unstyled bbc">
+      <li>
+        <% if @user == current_user %>
+            <%= link_to "修改個人資料", edit_user_path(current_user), :class => "btn btn-default" %>
+        <% end %>
+        <%= link_to "Home", root_path, :class => "btn btn-default" %>
+
+      </li>
+    </ul>
+
+
+    <div class="pp">
+      圖片
+    </div>
+    <div class="bb row">
+      <div class="c col-md-8">
+        <div class="dds">
+          <h3>基本資料</h3>
+          <div class="center">
+            <p class="ffff">first_name : <%= @user.first_name %></p>
+            <p class="ffff">last_name : <%= @user.last_name %></p>
+          </div>
+
+        </div>
+        <div class="ddw">
+          <h3>firend</h3>
+          <div class="ttw">
+            <% @users.each do |user| %>
+                <p> <%= user.display_name %></p>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+      <div class="ttq col-md-4">
+        <h3>firend_create</h3>
+
+        <% @users.each do |user| %>
+            <p> <%= user.display_name %></p>
+        <% end %>
+      </div>
+
+
+    </div>
+    <div class="cc">
+      <h3>description</h3>
+      <div class="center">
+        <%= @user.description %>
+      </div>
+    </div>
+
+
+  </div>
+</div>

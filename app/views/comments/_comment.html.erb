@@ -19,7 +19,8 @@
     </div>
     <div class="col-md-4 center">
       <% if comment.user.email != nil %>
-          <%= comment.user.email %>
+          <% t = comment.user.display_name %>
+          <%= link_to t, user_path(comment.user) %>
       <% end %>
     </div>
     <div class="col-md-4 center">

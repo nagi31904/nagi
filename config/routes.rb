@@ -10,9 +10,13 @@ Rails.application.routes.draw do
     resources :likes
   end
   resources :infos
+
+  resources :users
+
   resources :post_categories
   resources :work_categories
   resources :index_work_categories
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

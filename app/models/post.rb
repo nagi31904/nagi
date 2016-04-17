@@ -13,4 +13,13 @@ class Post < ActiveRecord::Base
       self.likes.find_by_user_id(user.id)
     end
   end
+
+
+
+
+
+  def display_timezone
+
+    created_at.to_s.split("+").first
+  end
 end

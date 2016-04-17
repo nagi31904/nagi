@@ -44,7 +44,7 @@
               <%= link_to post.title, work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]) %>
             </div>
             <p class="col-md-4 center imatime">
-              <%= post.created_at %>
+              <%= post.display_timezone %>
             </p>
 
           </div>

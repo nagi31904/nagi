@@ -12,7 +12,7 @@
         <% end %>
       </div>
       <div class="ww">
-        - <%= @work_post.created_at %> -
+        - <%= @work_post.display_timezone %> -
       </div>
       類別,狀態
     </div>
@@ -20,8 +20,10 @@
 
     </div>
     <div class="col-md-4">
-      <%= link_to 'edit', edit_work_post_path(@work_post, :work_category_id => @work_category.id), :class => "btn btn-default" %>
-      <%= link_to 'Delete', work_post_path(@work_post, :page => params[:page], :work_category_id => @work_category.id), :method => :delete, :class => "btn btn-danger" %>
+      <% if current_user != nil && current_user.admin == true %>
+          <%= link_to 'edit', edit_work_post_path(@work_post, :work_category_id => @work_category.id), :class => "btn btn-default" %>
+          <%= link_to 'Delete', work_post_path(@work_post, :page => params[:page], :work_category_id => @work_category.id), :method => :delete, :class => "btn btn-danger" %>
+      <% end %>
       <%= link_to "bK TO INDEX", work_posts_path(:work_category_id => @work_category.id), :class => "btn btn-default" %>
 
     </div>

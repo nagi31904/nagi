@@ -51,14 +51,14 @@
             <% end %>
           </div>
           <div class="col-md-2 center">
-            <%= post.created_at %>
+            <%= post.display_timezone %>
           </div>
           <div class="col-md-2 center">
             <%= post.comments_count %>
           </div>
           <div class="col-md-2 center">
             <% if post.comments.last %>
-                <%= post.comments.last.created_at %>
+                <%= post.comments.last.display_timezone %>
             <% end %>
           </div>
           <div class="col-md-2 center">

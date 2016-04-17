@@ -3,14 +3,20 @@ class LikesController < ApplicationController
 
 
   def create
-    like = @post.finy_like_by(current_user)
-    if like
+    if current_user != nil
+      like = @post.finy_like_by(current_user)
+      if like
 
+      else
+        @post.likes.create!(:user => current_user)
+      end
+
+      redirect_to :back
     else
-      @post.likes.create!(:user => current_user)
+      redirect_to :back
     end
 
-    redirect_to :back
+
   end
 
   def destroy

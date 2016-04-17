@@ -1,5 +1,5 @@
 class AboutsController < ApplicationController
   def index
-    @abouts = About.all
+    @user = User.find_by_admin("true")
   end
 end

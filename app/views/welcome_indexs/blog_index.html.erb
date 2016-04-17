@@ -9,6 +9,7 @@
         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
       </ol>
 
       <!-- Wrapper for slides -->
@@ -28,6 +29,12 @@
         </div>
         <div class="item vedio">
           <img src="https://i.ytimg.com/vi/GovHgbi9Iv8/maxresdefault.jpg" alt="...">
+          <div class="carousel-caption">
+
+          </div>
+        </div>
+        <div class="item vedio">
+          <img src="https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-prn2/1102398_378677695592147_2018016501_o.jpg" alt="...">
           <div class="carousel-caption">
 
           </div>
@@ -90,7 +97,7 @@
             <% @infos.each do |info| %>
                 <p class="center row hi">
                 <div class="col-md-4 center ">
-                  <%= info.created_at %>
+                  <%= info.display_hour %>
                 </div>
                 <div class="col-md-7 center">
                   <%= link_to info.title, info_path(info, :page => params[:page]) %>

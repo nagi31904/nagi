@@ -16,12 +16,27 @@
     <% end %>
     <%= time_zone_select :user, :time_zone %>
   </div>
-
+  <div class="col-md-4"></div>
+  <% if current_user %>
+      <div class="col-md-4 center"><%= link_to "personal information", user_path(current_user) %></div>
+  <% end %>
 </head>
 <body>
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+
+<% if flash[:notice] %>
+    <script>
+      swal("Good job!", "Action create!", "success")
+    </script>
+
+<% elsif flash[:alert] %>
+    <script>
+      swal("Oops...", "Something went wrong!", "error");
+    </script>
+
+<% else %>
+<% end %>
+
 
 
 <div class="bg">
