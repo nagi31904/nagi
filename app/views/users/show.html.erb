@@ -19,7 +19,7 @@
             <%= link_to "修改個人資料", edit_user_path(current_user), :class => "btn btn-default" %>
         <% end %>
         <%= link_to "Home", root_path, :class => "btn btn-default" %>
-
+        <%= link_to "friend",friendships_path(:friend_id =>@user ) ,:method => :post, :class => "btn btn-default" %>
       </li>
     </ul>
 
@@ -28,30 +28,35 @@
       圖片
     </div>
     <div class="bb row">
-      <div class="c col-md-8">
+      <div class="col-md-8">
         <div class="dds">
           <h3>基本資料</h3>
           <div class="center">
             <p class="ffff">first_name : <%= @user.first_name %></p>
             <p class="ffff">last_name : <%= @user.last_name %></p>
+
           </div>
 
         </div>
-        <div class="ddw">
+        <div class="">
           <h3>firend</h3>
           <div class="ttw">
-            <% @users.each do |user| %>
-                <p> <%= user.display_name %></p>
+            <% @my_friendships.each do |u| %>
+                <p> <%= u.friend.email %></p>
             <% end %>
           </div>
 
         </div>
       </div>
-      <div class="ttq col-md-4">
+      <div class=" col-md-4">
         <h3>firend_create</h3>
 
-        <% @users.each do |user| %>
-            <p> <%= user.display_name %></p>
+        <% @anti_friendships.each do |f| %>
+            <div> <%= f.user.email %></div>
+            <div><%= link_to "unfriend", friendship_path(:friend_id => f.user ) ,:method => :delete, :class => "btn btn-default" %></div>
+            <div><%= link_to "confirm", confirm_friendship_path(f,:friend_id =>f.user  ),method: :post , :class => "btn btn-default" %></div>
+
+
         <% end %>
       </div>
 

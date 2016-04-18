@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :friendships do
+    member do
+      post 'confirm'
+    end
+  end
   devise_for :users
   root :to => "welcome_indexs#blog_index"
   resources :bookmarks
@@ -12,6 +17,7 @@ Rails.application.routes.draw do
   resources :infos
 
   resources :users
+
 
   resources :post_categories
   resources :work_categories

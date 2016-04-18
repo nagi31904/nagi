@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :friends,:through => :friendships
 
   has_many :anti_friendships,:class_name => "Friendship",:foreign_key => "friend_id"
-  has_many :anti_friends, :through => :anti_friendships,:source=>:users
+  has_many :anti_friends, :through => :anti_friendships,:source=>:user
 
 
   def display_name

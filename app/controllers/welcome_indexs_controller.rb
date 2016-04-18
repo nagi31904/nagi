@@ -5,8 +5,8 @@ class WelcomeIndexsController < ApplicationController
   before_action :set_comment, :only => [ :blog_index ,:show, :edit, :update, :destroy]
   def blog_index
 
-    @work_category = WorkCategory.find_by_title("ills")
-    @work_posts = WorkCategory.find_by_title("ills").work_posts
+    @work_category = WorkCategory.find_by_title("illustration")
+    @work_posts = WorkCategory.find_by_title("illustration").work_posts
     @work_posts= @work_posts.order(created_at: :desc).limit(9)
 
     @infos = @infos.order(created_at: :desc).limit(6)

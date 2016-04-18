@@ -4,8 +4,9 @@ class UsersController < ApplicationController
 
 
   def show
-
-      @user = User.find(params[:id])
+    @anti_friendships = current_user.anti_friendships.where(:confirm => false)
+    @user = User.find(params[:id])
+    @my_friendships = current_user.friendships.where(:confirm => true)
 
 
   end
@@ -26,12 +27,13 @@ class UsersController < ApplicationController
 
   protected
 
- def set_user
-   @users = User.all
- end
+  def set_user
+    @firs = User.all
+  end
+
 
   def user_params
-    params.require(:user).permit(:time_zone ,:first_name,:last_name,:description)
+    params.require(:user).permit(:time_zone, :first_name, :last_name, :description)
   end
 
 end
