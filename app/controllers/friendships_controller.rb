@@ -13,7 +13,7 @@ class FriendshipsController < ApplicationController
   end
 
   def confirm
-   @my_friendship = current_user.friendships.create(:friend_id => params[:friend_id], :confirm => true)
+    @my_friendship = current_user.friendships.create(:friend_id => params[:friend_id], :confirm => true)
 
     @friendship = current_user.anti_friendships.find(params[:id])
     @friendship.confirm = true

@@ -1,11 +1,11 @@
 body {
 
     font-family: 'Orbitron', sans-serif;
-
-    background-image: url(https://i.ytimg.com/vi/vV6JpyUlLXc/maxresdefault.jpg);
-    opacity: 1;
-
-   background-color: black;
+    background: #76b1ed;
+    background: -moz-linear-gradient(top, #76b1ed 0%, #3c74a3 100%);
+    background: -webkit-linear-gradient(top, #76b1ed 0%,#3c74a3 100%);
+    background: linear-gradient(to bottom, #76b1ed 0%,#3c74a3 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#76b1ed', endColorstr='#3c74a3',GradientType=0 );
 
 
 }
