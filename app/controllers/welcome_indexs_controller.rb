@@ -7,7 +7,7 @@ class WelcomeIndexsController < ApplicationController
   def blog_index
 
     @work_category = WorkCategory.find_by_title("illustration")
-    if @work_category == []
+    if @work_category != []
       @work_posts = WorkCategory.find_by_title("illustration").work_posts
       @work_posts= @work_posts.order(created_at: :desc).limit(9)
       @work_post_first = @work_posts.first

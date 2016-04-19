@@ -13,7 +13,7 @@
     <div class="bb">
       <h3>基本資料</h3>
       <div class="center">
-        <% if @user != nil %>
+        <% if @user != [] %>
             <h3>first_name : <%= @user.first_name %></h3>
             <h3>last_name : <%= @user.last_name %></h3>
         <% end %>
@@ -22,7 +22,7 @@
     <div class="cc">
       <h3>description</h3>
       <div class="center">
-        <% if @user != nil %>
+        <% if @user != [] %>
             <%= @user.description %>
         <% end %>
       </div>
