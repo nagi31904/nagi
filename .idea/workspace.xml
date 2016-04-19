@@ -4,11 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/app/views/posts/show.html.erb" line="88" mnemonic="4" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="17abe377-3ed9-42e3-a893-13352b6218ec" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/layouts.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/layouts.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/friendships_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/friendships_controller.rb" />
-    </list>
+    <list default="true" id="17abe377-3ed9-42e3-a893-13352b6218ec" name="Default" comment="" />
     <ignored path="nagi.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.bundle/" />
