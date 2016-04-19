@@ -13,18 +13,20 @@
     <div class="bb">
       <h3>基本資料</h3>
       <div class="center">
-        <h3>first_name : <%= @user.first_name %></h3>
-        <h3>last_name : <%= @user.last_name %></h3>
+        <% if @user != nil %>
+            <h3>first_name : <%= @user.first_name %></h3>
+            <h3>last_name : <%= @user.last_name %></h3>
+        <% end %>
       </div>
     </div>
     <div class="cc">
       <h3>description</h3>
       <div class="center">
-        <%= @user.description %>
+        <% if @user != nil %>
+            <%= @user.description %>
+        <% end %>
       </div>
     </div>
-
-
 
 
   </div>
