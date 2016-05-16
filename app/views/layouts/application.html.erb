@@ -6,21 +6,38 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-  <div class="center col-md-4">
-    <% if current_user %>
-        <%= link_to('SING OUT', destroy_user_session_path, :method => :delete) %> |
-        <%= link_to('CHANGE PASSWORD', edit_registration_path(:user)) %>
-    <% else %>
-        <%= link_to('SIGN UP', new_registration_path(:user)) %> |
-        <%= link_to('SIGN IN', new_session_path(:user)) %>
-    <% end %>
-    <%= time_zone_select :user, :time_zone %>
-  </div>
-  <div class="col-md-4"></div>
-  <% if current_user %>
-      <div class="col-md-4 center"><%= link_to "personal information", user_path(current_user) %></div>
-  <% end %>
+
+
+
+  <nav class="navbar-fixed-top">
+
+    <ul class="list-unstyled" id="main-ul">
+
+      <li> <%= link_to "Home", root_path, class: "link-3" %></li>
+      <li><a href="http://sharead.frb.tw/main.html" class="link-3">Introduction</a></li>
+      <li><%= link_to "Info", infos_path %></li>
+      <li><%= link_to "Work", index_work_categories_path %></li>
+      <li><%= link_to "Blog", posts_path %></li>
+      <li><%= link_to "Abouts", abouts_path %></li>
+
+      <li>
+        <% if current_user %>
+            <%= link_to('會員中心', user_path(current_user), class: "link-3") %>
+        <% else %>
+            <%= link_to('SIGN UP', new_registration_path(:user), class: "link-3") %>
+        <% end %></li>
+      <li>
+        <% if current_user %>
+            <%= link_to('SING OUT', destroy_user_session_path, :method => :delete, class: "link-3") %>
+        <% else %>
+            <%= link_to('SIGN IN', new_session_path(:user), class: "link-3") %>
+        <% end %></li>
+
+    </ul>
+    <a href="#0" class="toggle-nav"></a>
+  </nav>
 </head>
+
 <body>
 
 
@@ -40,31 +57,19 @@
 
 
 <div class="bg">
-  <header class="row">
 
-  </header>
-  <div class="row">
-    <div class="ti">
-      <h1><%= link_to "NAGI", root_path %></h1>
-    </div>
-  </div>
 
-  <div class="bookmark">
 
-    <ul class="list-inline list-unstyled li-con">
-      <li><%= link_to "Home", root_path %></li>
-      <li><%= link_to "Info", infos_path %></li>
-      <li><%= link_to "Work", index_work_categories_path %></li>
-      <li><%= link_to "Abouts", abouts_path %></li>
-      <li><%= link_to "Blog", posts_path %></li>
-    </ul>
-  </div>
-  <HR size="4" width="85%">
   <%= yield %>
-  <div class="line">
-    <HR size="4" width="85%">
-  </div>
+
 </div>
 
+
+<footer>
+  <p class="center foo">
+    <%= time_zone_select :user, :time_zone %>
+  </p>
+
+</footer>
 </body>
 </html>
