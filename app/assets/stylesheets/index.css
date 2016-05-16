@@ -12,3 +12,6 @@ a{
     padding: 5% 0 0% 0;
     font-size: 120%;
 }
+.lia{
+    align-content: flex-start;
+}
