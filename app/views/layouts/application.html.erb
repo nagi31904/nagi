@@ -14,13 +14,20 @@
       <ul class="list-unstyled" id="main-ul">
 
         <li> <%= link_to "Home", root_path, class: "link-3" %></li>
-        <li><a href="http://sharead.frb.tw/main.html" class="link-3">Introduction</a></li>
-        <li><%= link_to "Info", infos_path %></li>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Introduction
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "News", infos_path %></li>
+            <li><%= link_to "Abouts", abouts_path %></li>
+          </ul>
+        </li>
+
         <li><%= link_to "Work", index_work_categories_path %></li>
         <li><%= link_to "Blog", posts_path %></li>
-        <li><%= link_to "Abouts", abouts_path %></li>
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">會員專區
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">mander centre
             <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li>

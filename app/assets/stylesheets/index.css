@@ -15,3 +15,10 @@ a{
 .lia{
     align-content: flex-start;
 }
+
+.dropdown-menu>li>a:hover{
+    background-color: inherit;
+}
+.dropdown-menu>li>a:focus{
+    background-color: inherit;
+}
