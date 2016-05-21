@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_comment, :only => [:show, :edit, :destroy, :update]
   before_action :set_post, :only => [:create, :show, :edit, :update, :destroy]
+  before_action :set_work_category
 
 
   def new

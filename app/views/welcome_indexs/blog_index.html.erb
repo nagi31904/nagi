@@ -1,83 +1,23 @@
 <div class="ti">
   <h1><%= link_to "NAGI", root_path %></h1>
+  <h2>Welcome to my world.</h2>
 </div>
 
-<div class="container">
+<div class="bgsen">
+  <div class="bgblock1">
+    <h2 class="center mini-title">Info</h2>
 
-  <div class="row">
-    <div class="con1 col-md-7">
-      <div class="div col-md-1"></div>
-      <div class="con2 col-md-11 center cco">
-        <p class="z">
-          IMAGE
-        </p>
-        <div class="imagewlcome">
-          <% @work_posts.each do |post| %>
-              <div class="xx col-md-3">
-                <div class="smailpic">
-                  <% if post.img.exists? && post.ved? %>
-                      <% tit = image_tag(post.img.url(:medium)) %>
-                      <%= link_to tit, work_post_path(post, :page => params[:page], :work_category_id => @work_category.id) %>
-                  <% elsif post.img.exists? %>
-                      <% tit = image_tag(post.img.url(:medium)) %>
-                      <%= link_to tit, work_post_path(post, :page => params[:page], :work_category_id => @work_category.id) %>
-                  <% elsif post.ved? %>
-                      <iframe width="140" height="85" src=<%= post.ved %> frameborder="0" allowfullscreen></iframe>
-                  <% else %>
-
-                  <% end %>
-                </div>
-                <p>
-                  <%= link_to post.title, work_post_path(post, :page => params[:page], :work_category_id => @work_category.id) %>
-                </p>
-              </div>
-          <% end %>
-
-
-        </div>
-
-      </div>
-    </div>
-    <div class="con2 col-md-5">
-      <div class="t col-md-11">
-        <div class="con3 cco center text">
-          <div class="z">
-            NEW_INFO
-          </div>
-          <div class="bar1">
-            <% @infos.each do |info| %>
-                <p class="center row hi">
-                <div class="col-md-4 center ">
-                  <%= info.display_hour %>
-                </div>
-                <div class="col-md-7 center">
-                  <%= link_to info.title, info_path(info, :page => params[:page]) %>
-                </div>
-                </p>
-            <% end %>
-          </div>
-
-        </div>
-
-        <div class="con4 cco center text">
-          <div class="z">
-            NEW_COMMNET_POST
-          </div>
-          <div class="bar2">
-            <% @posts.each do |post| %>
-                <p class="center row hi">
-                <div class="col-md-4 center ">
-                  <%= link_to post.title, post_path(post, :page => params[:page]) %>
-                </div>
-                <div class="col-md-7 center">
-                  <%= post.description %>
-                </div>
-                </p>
-            <% end %>
-          </div>
-        </div>
-      </div>
-
-    </div>
   </div>
+  <div class="bgblock2">
+    <h2 class="center mini-title">New-port</h2>
+
+
+  </div>
+  <div class="bgblock1">
+    <h2 class="center mini-title">New-comment-port</h2>
+  </div>
+
+
+
+
 </div>

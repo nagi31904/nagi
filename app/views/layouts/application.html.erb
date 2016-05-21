@@ -24,7 +24,19 @@
           </ul>
         </li>
 
-        <li><%= link_to "Work", index_work_categories_path %></li>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">work
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% @work_categories.each do |work_category| %>
+                <li>
+                  <%= link_to work_category.title, work_posts_path(:work_category_id => work_category.id) %>
+                </li>
+
+            <% end %>
+          </ul>
+        </li>
         <li><%= link_to "Blog", posts_path %></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">mander centre
@@ -32,12 +44,12 @@
           <ul class="dropdown-menu">
             <li>
               <% if current_user %>
-                  <%= link_to('會員中心', user_path(current_user), class: "link-3") %>
+                  <%= link_to('mander data', user_path(current_user), class: "link-3") %>
               <% else %>
                   <%= link_to('SIGN UP', new_registration_path(:user), class: "link-3") %>
               <% end %>
             </li>
-            <li >
+            <li>
               <% if current_user %>
                   <%= link_to('SING OUT', destroy_user_session_path, :method => :delete, class: "link-3") %>
               <% else %>

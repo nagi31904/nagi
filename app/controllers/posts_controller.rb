@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_category, :only => [ :new,:show, :edit, :update, :destroy,:index]
   before_action :set_post, :only => [ :show, :edit, :update, :destroy]
-
+  before_action :set_work_category
 
   def index
     @page = params[:page] ||= "1"

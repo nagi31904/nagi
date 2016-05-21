@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user
 
-
+  before_action :set_work_category
   def show
     @anti_friendships = current_user.anti_friendships.where(:confirm => false)
     @user = User.find(params[:id])

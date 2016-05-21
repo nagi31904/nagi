@@ -1,5 +1,6 @@
 class PostCategoriesController < ApplicationController
   before_action :set_post_category, :only => [ :show, :edit, :update, :destroy]
+  before_action :set_work_category
 
 
   def index

@@ -22,3 +22,20 @@ a{
 .dropdown-menu>li>a:focus{
     background-color: inherit;
 }
+.bgsen{
+
+    height: 1500px;
+}
+.bgblock1{
+    margin: 0 0 70px 0;
+    background: rgba(100,188,80,0.8);
+    height: 400px;
+}
+.bgblock2{
+    margin: 0 0 70px 0;
+
+    height: 400px;
+}
+.mini-title{
+    padding: 10px 0;
+}

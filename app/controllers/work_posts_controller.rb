@@ -2,9 +2,9 @@ class WorkPostsController < ApplicationController
   before_action :set_work_category, :only => [:index,:show, :edit, :update, :destroy]
   before_action :set_work_post, :only => [ :show, :edit, :update, :destroy]
   before_action :set_work_category_id
-
+  before_action :set_work_category
   def index
-    @work_categories = @work_category
+
     @work_posts = WorkCategory.find(params[:work_category_id]).work_posts
     @work_posts= @work_posts.order(created_at: :desc)
   end
@@ -60,10 +60,10 @@ class WorkPostsController < ApplicationController
 
   private
   def set_work_category_id
-    @work_category = WorkCategory.find(params[:work_category_id])
+    @work_category = WorkCategory.find_by_id(params[:work_category_id])
   end
   def set_work_category
-    @work_category = WorkCategory.all
+    @work_categories = WorkCategory.all
   end
   def work_post_params
     params.require(:work_post).permit(:title, :description,:img,:ved, :work_category_ids =>[])

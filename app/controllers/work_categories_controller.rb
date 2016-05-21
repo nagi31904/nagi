@@ -1,5 +1,6 @@
 class WorkCategoriesController < ApplicationController
-  before_action :set_work_category, :only => [ :show, :edit, :update, :destroy]
+  before_action :set_work_category_id, :only => [ :show, :edit, :update, :destroy]
+  before_action :set_work_category
 
 
   def index
@@ -50,7 +51,7 @@ class WorkCategoriesController < ApplicationController
   def work_category_params
     params.require(:work_category).permit(:title,:logo)
   end
-  def set_work_category
+  def set_work_category_id
     @work_category = WorkCategory.find(params[:id])
   end
 

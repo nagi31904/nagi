@@ -47,7 +47,9 @@ color: #5dc2f1;}
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1), inset 0 0 1px rgba(255, 255, 255, 0.6);
     background: rgba(255, 255, 255, 0.1);
 }
-
+.ti{
+    margin: 100px 0 60px 0;
+}
 
 
 
@@ -140,7 +142,7 @@ color: #5dc2f1;}
 }
 
 .ti h1 {
-    padding: 5% 0 0 0;
+
     text-align: center;
     font-size: 600%;
     color: #EFEFEF;
@@ -172,6 +174,14 @@ label{
 }
 
 .cco {
+    border-radius: 5%;
+    margin: 100px auto;
+    background:rgba(255,255,255,0.3);
+    color: #EFEFEF;
+}
+.cco1 {
+    border-radius: 5%;
+    margin: 100px auto;
     color: #EFEFEF;
 }
 
