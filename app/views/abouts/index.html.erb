@@ -14,11 +14,13 @@
   </div>
   <div class="bgblock1">
     <h2 class="center mini-title">基本資料</h2>
-    <% if @user != nil %>
-        <h3>first_name : <%= @user.first_name %></h3>
-        <h3>last_name : <%= @user.last_name %></h3>
-    <% end %>
+    <div class="me">
 
+      <% if @user != nil %>
+          <h3>first_name : <%= @user.first_name %></h3>
+          <h3>last_name : <%= @user.last_name %></h3>
+      <% end %>
+    </div>
   </div>
   <div class="bgblock2">
     <h2 class="center mini-title">description</h2>
@@ -30,8 +32,6 @@
   <div class="bgblock1">
     <h2 class="center mini-title">Best work</h2>
   </div>
-
-
 
 
 </div>
