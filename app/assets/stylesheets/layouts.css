@@ -9,6 +9,7 @@ body {
 
 
 
+
 }
 a {
     text-decoration:none;
@@ -121,7 +122,13 @@ color: #5dc2f1;}
 
 
 
-
+.ti4 {
+    margin: 50px auto;
+    text-align: center;
+    font-size: 300%;
+    color: #EFEFEF;
+    text-align: center;
+}
 
 
 

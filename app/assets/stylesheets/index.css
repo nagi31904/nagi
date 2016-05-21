@@ -17,14 +17,14 @@ a{
 }
 
 .dropdown-menu>li>a:hover{
-    background-color: inherit;
+    background-color: transparent;
 }
 .dropdown-menu>li>a:focus{
-    background-color: inherit;
+    background-color: transparent;
 }
 .bgsen{
 
-    height: 1500px;
+    height: 2000px;
 }
 .bgblock1{
     margin: 0 0 70px 0;

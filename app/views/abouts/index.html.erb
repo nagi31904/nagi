@@ -1,33 +1,37 @@
 <div class="ti2 titl clearfix">
   <div class="sp col-md-1"></div>
-  <div class="col-md-10 row ">
-    <h1>ABOUTS</h1>
+  <div class="col-md-10 row ti4">
+    <h1>ABOUT ME</h1>
   </div>
 </div>
 
-<div class="row center cco">
-  <div class="about test row center">
-    <div class="pp">
-      圖片
-    </div>
-    <div class="bb">
-      <h3>基本資料</h3>
-      <div class="center">
-        <% if @user != nil %>
-            <h3>first_name : <%= @user.first_name %></h3>
-            <h3>last_name : <%= @user.last_name %></h3>
-        <% end %>
-      </div>
-    </div>
-    <div class="cc">
-      <h3>description</h3>
-      <div class="center">
-        <% if @user != nil %>
-            <%= @user.description %>
-        <% end %>
-      </div>
-    </div>
+
+<div class="bgsen">
+  <div class="bgblock2">
+    <h2 class="center mini-title">圖片</h2>
 
 
   </div>
+  <div class="bgblock1">
+    <h2 class="center mini-title">基本資料</h2>
+    <% if @user != nil %>
+        <h3>first_name : <%= @user.first_name %></h3>
+        <h3>last_name : <%= @user.last_name %></h3>
+    <% end %>
+
+  </div>
+  <div class="bgblock2">
+    <h2 class="center mini-title">description</h2>
+    <% if @user != nil %>
+        <%= @user.description %>
+    <% end %>
+
+  </div>
+  <div class="bgblock1">
+    <h2 class="center mini-title">Best work</h2>
+  </div>
+
+
+
+
 </div>
