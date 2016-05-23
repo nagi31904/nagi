@@ -1,0 +1,73 @@
+/* Global */
+
+img {
+    max-width: 100%;
+}
+
+a {
+    -webkit-transition: all 150ms ease;
+    -moz-transition: all 150ms ease;
+    -ms-transition: all 150ms ease;
+    -o-transition: all 150ms ease;
+    transition: all 150ms ease;
+}
+
+a:hover {
+
+    text-decoration: none;
+}
+
+.span3 {
+    margin: 0 50px 0 0;
+    height: 240px;
+    width: 300px;
+}
+
+/* Container */
+.container-fluid {
+    text-align: center;
+    margin: 20px auto 10px auto;
+    padding: 20px 73px 0;
+    max-width: 100%;
+
+}
+
+/* Thumbnail Box */
+.caption h4 {
+    font-size: 1rem;
+    color: #444;
+}
+
+.caption p {
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.btn.btn-mini {
+    font-size: 0.63rem;
+}
+
+/* Carousel Control */
+.control-box {
+    position: absolute;
+    z-index: 1;
+    width: 90%;
+}
+
+.carousel-control {
+    background: #666;
+    border: 0px;
+    border-radius: 0px;
+
+    position: fixed;
+    font-size: 34px;
+    font-weight: 200;
+    line-height: 18px;
+    opacity: 0.5;
+    padding: 4px 10px 0px;
+    height: 30px;
+    width: 15px;
+}
+
+
+
