@@ -33,6 +33,8 @@ gem 'capistrano-passenger', :group => :development
 
 gem "mysql2", :group => :production
 
+gem "kaminari"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
