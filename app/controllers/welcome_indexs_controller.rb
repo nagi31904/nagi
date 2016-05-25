@@ -17,7 +17,7 @@ class WelcomeIndexsController < ApplicationController
 
       @number_post = @work_post_webs.limit(9)
       @number = @number_post.size
-      @number = 9
+      
       @number_v = (@number-1)/3
 
     else
