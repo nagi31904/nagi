@@ -63,7 +63,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:title, :description, :post_category_ids =>[])
+    params.require(:post).permit(:title, :description,:img, :post_category_ids =>[])
   end
   def set_category
     @category = PostCategory.all

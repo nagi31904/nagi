@@ -29,8 +29,12 @@ class WelcomeIndexsController < ApplicationController
 
 
     @infos = @infos.order(created_at: :desc).limit(9)
+    @number_info = @infos.size
+    @number_info_v = ( @number_info-1)/3
 
     @posts = @posts.order(updated_at: :desc).limit(9)
+    @number_post = @posts.size
+    @number_post_v = ( @number_post-1)/3
 
 
   end

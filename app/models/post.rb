@@ -6,6 +6,10 @@ class Post < ActiveRecord::Base
   has_many :likes
   has_many :like_users, :through => :likes, :source => :user
 
+
+  has_attached_file :img, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment_content_type :img, content_type: /\Aimage\/.*\Z/
+
   def finy_like_by(user)
     if user == nil
 

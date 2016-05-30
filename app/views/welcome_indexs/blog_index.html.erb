@@ -21,11 +21,20 @@
                       <% work_post_webs[a..b].each do |post| %>
                           <li class="span3 line">
                             <div class="thumbnail img_size">
-                              <% tit = image_tag(post.img.url(:medium)) %>
-                              <%= link_to tit, work_post_path(post, :work_category_id => @work_category_id) %>
+                              <% if post.img.exists? %>
+                                  <% tit = image_tag(post.img.url(:medium)) %>
+                                  <%= link_to tit, work_post_path(post, :work_category_id => @work_category_id) %>
+                              <% else %>
+                                  <% tit = image_tag("missing.jpg", size: "200x200") %>
+                                  <%= link_to tit, work_post_path(post, :work_category_id => @work_category_id) %>
+                              <% end %>
                             </div>
                             <div class="caption">
-                              <h4><%= post.title %></h4>
+                              <% if post.title !="" %>
+                                  <h4><%= post.title %></h4>
+                              <% else %>
+                                  <h4>no title</h4>
+                              <% end %>
 
                               <%= link_to "Read More", work_post_path(post, :work_category_id => @work_category_id) %>
                             </div>
@@ -43,11 +52,20 @@
                       <% work_post_webs[a..b].each do |post| %>
                           <li class="span3 line">
                             <div class="thumbnail img_size">
-                              <% tit = image_tag(post.img.url(:medium)) %>
-                              <%= link_to tit, work_post_path(post, :work_category_id => @work_category_id) %>
+                              <% if post.img.exists? %>
+                                  <% tit = image_tag(post.img.url(:medium)) %>
+                                  <%= link_to tit, work_post_path(post, :work_category_id => @work_category_id) %>
+                              <% else %>
+                                  <% tit = image_tag("missing.jpg", size: "200x200") %>
+                                  <%= link_to tit, work_post_path(post, :work_category_id => @work_category_id) %>
+                              <% end %>
                             </div>
                             <div class="caption">
-                              <h4><%= post.title %></h4>
+                              <% if post.title !="" %>
+                                  <h4><%= post.title %></h4>
+                              <% else %>
+                                  <h4>no title</h4>
+                              <% end %>
 
                               <%= link_to "Read More", work_post_path(post, :work_category_id => @work_category_id) %>
                             </div>
@@ -67,11 +85,20 @@
                           <% work_post_webs[a..b].each do |post| %>
                               <li class="span3 line">
                                 <div class="thumbnail img_size">
-                                  <% tit = image_tag(post.img.url(:medium)) %>
-                                  <%= link_to tit, work_post_path(post, :work_category_id => @work_category_id) %>
+                                  <% if post.img.exists? %>
+                                      <% tit = image_tag(post.img.url(:medium)) %>
+                                      <%= link_to tit, work_post_path(post, :work_category_id => @work_category_id) %>
+                                  <% else %>
+                                      <% tit = image_tag("missing.jpg", size: "200x200") %>
+                                      <%= link_to tit, work_post_path(post, :work_category_id => @work_category_id) %>
+                                  <% end %>
                                 </div>
                                 <div class="caption">
-                                  <h4><%= post.title %></h4>
+                                  <% if post.title != "" %>
+                                      <h4><%= post.title %></h4>
+                                  <% else %>
+                                      <h4>no title</h4>
+                                  <% end %>
 
                                   <%= link_to "Read More", work_post_path(post, :work_category_id => @work_category_id) %>
                                 </div>
@@ -101,10 +128,241 @@
 <div class="bgblock2">
   <h2 class="center mini-title">New-Info</h2>
 
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="carousel slide" id="myCarousel">
+          <div class="carousel-inner">
+            <% if  @number_info < 3 %>
+                <div class="item active">
+                  <ul class="thumbnails list-inline tese">
+                    <% info_a = 0 %>
+                    <% info_b = 2 %>
+                    <% infos =  @infos %>
+                    <% infos[info_a..info_b].each do |info| %>
+                        <li class="span3 line">
+                          <div class="thumbnail img_size">
+                            <% if info.img.exists? %>
+                                <% tit = image_tag(info.img.url(:medium)) %>
+                                <%= link_to tit, info_path(info) %>
+                            <% else %>
+                                <% tit = image_tag("missing.jpg", size: "200x200") %>
+                                <%= link_to tit, info_path(info) %>
+                            <% end %>
+                          </div>
+                          <div class="caption">
+                            <% if info.title !="" %>
+                                <h4><%= info.title %></h4>
+                            <% else %>
+                                <h4>no title</h4>
+                            <% end %>
+
+                            <%= link_to "Read More", info_path(info) %>
+                          </div>
+                        </li>
+
+                    <% end %>
+                  </ul>
+                </div><!-- /Slide1 -->
+            <% else %>
+                <div class="item active">
+                  <ul class="thumbnails list-inline tese">
+                    <% info_a = 0 %>
+                    <% info_b = 2 %>
+                    <% infos =  @infos %>
+                    <% infos[info_a..info_b].each do |info| %>
+                        <li class="span3 line">
+                          <div class="thumbnail img_size">
+                            <% if info.img.exists? %>
+                                <% tit = image_tag(info.img.url(:medium)) %>
+                                <%= link_to tit, info_path(info) %>
+                            <% else %>
+                                <% tit = image_tag("missing.jpg", size: "200x200") %>
+                                <%= link_to tit, info_path(info) %>
+                            <% end %>
+                          </div>
+                          <div class="caption">
+                            <% if info.title !="" %>
+                                <h4><%= info.title %></h4>
+                            <% else %>
+                                <h4>no title</h4>
+                            <% end %>
+
+                            <%= link_to "Read More", info_path(info) %>
+                          </div>
+                        </li>
+
+                    <% end %>
+                  </ul>
+                </div><!-- /Slide1 -->
+                <% info_numder_count = 1 %>
+                <% info_count=0 %>
+                <% while info_count < @number_info_v %>
+                    <% info_a += 3 %>
+                    <% info_b += 3 %>
+                    <div class="item">
+                      <ul class="thumbnails list-inline tese">
+
+                        <% infos[info_a..info_b].each do |info| %>
+                            <li class="span3 line">
+                              <div class="thumbnail img_size">
+                                <% if info.img.exists? %>
+                                    <% tit = image_tag(info.img.url(:medium)) %>
+                                    <%= link_to tit, info_path(info) %>
+                                <% else %>
+                                    <% tit = image_tag("missing.jpg", size: "200x200") %>
+                                    <%= link_to tit, info_path(info) %>
+                                <% end %>
+                              </div>
+                              <div class="caption">
+                                <% if info.title !="" %>
+                                    <h4><%= info.title %></h4>
+                                <% else %>
+                                    <h4>no title</h4>
+                                <% end %>
+
+                                <%= link_to "Read More", info_path(info) %>
+                              </div>
+                            </li>
+
+                        <% end %>
+                      </ul>
+                    </div><!-- /Slide2 -->
+                    <% info_numder_count += 1 %>
+                    <% info_count +=1 %>
+                <% end %>
+            <% end %>
+          </div>
+
+
+        </div><!-- /#myCarousel -->
+
+      </div><!-- /.span12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+
+
+
 
 </div>
 <div class="bgblock1">
   <h2 class="center mini-title">New-Port</h2>
+
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="carousel slide" id="myCarousel">
+          <div class="carousel-inner">
+            <% if  @number_post < 3 %>
+                <div class="item active">
+                  <ul class="thumbnails list-inline tese">
+                    <% post_a = 0 %>
+                    <% post_b = 2 %>
+                    <% posts =  @posts %>
+                    <% posts[post_a..post_b].each do |post| %>
+                        <li class="span3 line">
+                          <div class="thumbnail img_size">
+                            <% if post.img.exists? %>
+                                <% tit = image_tag(post.img.url(:medium)) %>
+                                <%= link_to tit, post_path(post) %>
+                            <% else %>
+                                <% tit = image_tag("missing.jpg", size: "200x200") %>
+                                <%= link_to tit, post_path(post) %>
+                            <% end %>
+                          </div>
+                          <div class="caption">
+                            <% if post.title !="" %>
+                                <h4><%= post.title %></h4>
+                            <% else %>
+                                <h4>no title</h4>
+                            <% end %>
+
+                            <%= link_to "Read More", post_path(post) %>
+                          </div>
+                        </li>
+
+                    <% end %>
+                  </ul>
+                </div><!-- /Slide1 -->
+            <% else %>
+                <div class="item active">
+                  <ul class="thumbnails list-inline tese">
+                    <% post_a = 0 %>
+                    <% post_b = 2 %>
+                    <% posts =  @posts %>
+                    <% posts[post_a..post_b].each do |post| %>
+                        <li class="span3 line">
+                          <div class="thumbnail img_size">
+                            <% if post.img.exists? %>
+                                <% tit = image_tag(post.img.url(:medium)) %>
+                                <%= link_to tit, post_path(post) %>
+                            <% else %>
+                                <% tit = image_tag("missing.jpg", size: "200x200") %>
+                                <%= link_to tit, post_path(post) %>
+                            <% end %>
+                          </div>
+                          <div class="caption">
+                            <% if post.title !="" %>
+                                <h4><%= post.title %></h4>
+                            <% else %>
+                                <h4>no title</h4>
+                            <% end %>
+
+                            <%= link_to "Read More", post_path(post) %>
+                          </div>
+                        </li>
+
+                    <% end %>
+                  </ul>
+                </div><!-- /Slide1 -->
+                <% post_numder_count = 1 %>
+                <% post_count=0 %>
+                <% while post_count < @number_post_v %>
+                    <% post_a += 3 %>
+                    <% post_b += 3 %>
+                    <div class="item">
+                      <ul class="thumbnails list-inline tese">
+
+                        <% posts[post_a..post_b].each do |post| %>
+                            <li class="span3 line">
+                              <div class="thumbnail img_size">
+                                <% if post.img.exists? %>
+                                    <% tit = image_tag(post.img.url(:medium)) %>
+                                    <%= link_to tit, post_path(post) %>
+                                <% else %>
+                                    <% tit = image_tag("missing.jpg", size: "200x200") %>
+                                    <%= link_to tit, post_path(post) %>
+                                <% end %>
+                              </div>
+                              <div class="caption">
+                                <% if post.title !="" %>
+                                    <h4><%= post.title %></h4>
+                                <% else %>
+                                    <h4>no title</h4>
+                                <% end %>
+
+                                <%= link_to "Read More", post_path(post) %>
+                              </div>
+                            </li>
+
+                        <% end %>
+                      </ul>
+                    </div><!-- /Slide2 -->
+                    <% post_numder_count += 1 %>
+                    <% post_count +=1 %>
+                <% end %>
+            <% end %>
+          </div>
+
+
+        </div><!-- /#myCarousel -->
+
+      </div><!-- /.span12 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+
+
+
 
 
 </div>
