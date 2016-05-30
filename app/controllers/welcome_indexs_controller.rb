@@ -14,22 +14,23 @@ class WelcomeIndexsController < ApplicationController
 
       @work_category_id=WorkCategory.find_by_title("web").id
       @work_post_webs=work_post_ca_webs.work_posts
-
+      @work_post_webs = @work_post_webs.limit(9)
       @number_post = @work_post_webs.limit(9)
       @number = @number_post.size
-      
+
       @number_v = (@number-1)/3
 
     else
 
     end
 
-    @work_post_first_webs = @work_post_webs[0..2]
 
 
-    @infos = @infos.order(created_at: :desc).limit(6)
 
-    @posts = @posts.order(updated_at: :desc).limit(6)
+
+    @infos = @infos.order(created_at: :desc).limit(9)
+
+    @posts = @posts.order(updated_at: :desc).limit(9)
 
 
   end
