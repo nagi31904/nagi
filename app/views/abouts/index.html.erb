@@ -8,8 +8,12 @@
 
 <div class="bgsen">
   <div class="bgblock3">
-    <h2 class="center mini-title">圖片</h2>
 
+    <% if @user != nil %>
+       <div class="center big_to">
+         <%= image_tag(@user.img.url) %>
+       </div>
+    <% end %>
 
   </div>
   <div class="bgblock1">

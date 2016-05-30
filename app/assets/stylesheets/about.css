@@ -49,3 +49,8 @@
 .ffff{
     font-size: 110%;
 }
+.big_to{
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+}
