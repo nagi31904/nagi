@@ -15,7 +15,10 @@
               <% if @number < 3 %>
                   <div class="item active">
                     <ul class="thumbnails list-inline tese">
-                      <% @work_post_first_webs_0.each do |post| %>
+                      <% a = 0 %>
+                      <% b = 2 %>
+                      <% work_post_webs = @work_post_webs %>
+                      <% work_post_webs[a..b].each do |post| %>
                           <li class="span3 line">
                             <div class="thumbnail img_size">
                               <% tit = image_tag(post.img.url(:medium)) %>
