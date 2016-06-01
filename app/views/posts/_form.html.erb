@@ -8,8 +8,9 @@
   <div class="cco">
     <%= f.label :description, "Description" %>
   </div>
-  <%= f.text_area :description %>
+
 </div>
+<%= f.cktext_area :description, :class => 'someclass', :ckeditor => {:language => 'zh-tw'} %>
 <div class="form-group">
   <div class="cco">
     <%= f.file_field :img %>

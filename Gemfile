@@ -35,6 +35,8 @@ gem "mysql2", :group => :production
 
 gem "kaminari"
 
+gem 'ckeditor'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

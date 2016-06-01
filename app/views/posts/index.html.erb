@@ -1,4 +1,3 @@
-
 <% if current_user != nil && current_user.admin == true %>
     <div class="BT cco1">
       <ul class="list-inline list-unstyled">
@@ -39,7 +38,11 @@
     <% @posts.each do |post| %>
         <div class="row hi">
           <div class="col-md-2 center">
-            <%= link_to post.title, post_path(post, :page => params[:page]) %>
+            <% if post.title != "" %>
+                <%= link_to post.title, post_path(post, :page => params[:page]) %>
+            <% else %>
+                <%= link_to "no title", post_path(post, :page => params[:page]) %>
+            <% end %>
           </div>
           <div class="col-md-2 center">
             <% post.post_categories.each do |cate| %>
@@ -64,6 +67,6 @@
           </div>
         </div>
     <% end %>
-
+    <%= paginate @posts %>
   </div>
 </div>

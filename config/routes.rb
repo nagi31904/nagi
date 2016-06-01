@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+
+
+  mount Ckeditor::Engine => '/ckeditor'
   resources :friendships do
     member do
       post 'confirm'
