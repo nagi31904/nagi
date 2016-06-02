@@ -18,3 +18,5 @@
 //= require sweetalert.min
 //= require sil
 //= require ckeditor/init
+//= require test
+
