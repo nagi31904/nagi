@@ -4,9 +4,14 @@ class WorkPostsController < ApplicationController
   before_action :set_work_category_id
   before_action :set_work_category
   def index
-
-    @work_posts = WorkCategory.find(params[:work_category_id]).work_posts
+    workcate=WorkCategory.find_by_id(params[:work_category_id])
+    if workcate!=nil
+    @work_posts = WorkCategory.find_by_id(params[:work_category_id]).work_posts
     @work_posts= @work_posts.order(created_at: :desc)
+    else
+      render file: "#{Rails.root}/public/404.html", layout: false, status: 404
+    end
+
   end
   def new
 
