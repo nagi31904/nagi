@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background: image-url("bg.jpg")  center center fixed no-repeat;
+    background-color: #A5DC86;
     font-size: 150%;
     -moz-background-size: cover;
     background-size: cover;
