@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20160601182224) do
     t.integer  "friend_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
-    t.boolean  "create"
     t.boolean  "confirm",    default: false
   end
 
