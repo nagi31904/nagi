@@ -3,15 +3,15 @@
     <% if @work_category != nil %>
         <%= @work_category.title %>
     <% else %>
-    ALL
+        ALL
     <% end %>
 
   </h1>
   <h2 class="">work 介紹</h2>
   <%= link_to 'c work', new_work_post_path(:work_category_id => params[:work_category_id]), :class => "btn btn-default" %>
   <div class="row">
-    <div class="col-sm-6 col-md-4">
-      <% @work_posts.each do |post| %>
+    <% @work_posts.each do |post| %>
+        <div class="col-sm-6 col-md-4">
           <div class="thumbnail">
             <div class="postimg">
               <% if post.img.exists? && post.ved? %>
@@ -35,9 +35,9 @@
               <%= link_to 'READ MORE', work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]), :class => "btn btn-default fixed" %>
             </div>
           </div>
-      <% end %>
-    </div>
 
+        </div>
+    <% end %>
   </div>
 
 
