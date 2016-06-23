@@ -23,7 +23,8 @@
                 <%= link_to tit, post_path(post) %>
             <% end %>
           </div>
-          <div class="col-md-8 fixfather over">
+          <div class="col-md-8 fixfather">
+            <div class="over">
             <div class="title">
               <% if post.title != "" %>
                   <h3 class="title float"> <%= link_to post.title, post_path(post, :page => params[:page]) %></h3>
@@ -34,6 +35,7 @@
             <div class="Article">
               <%= simple_format(post.description) %>
             </div>
+              </div>
             <%= link_to 'READ MORE', post_path(post, :page => params[:page]), :class => "btn btn-default fixed" %>
           </div>
         </div>

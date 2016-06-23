@@ -3,7 +3,7 @@
   <h2 class="">NEWS</h2>
   <% if current_user != nil && current_user.admin == true %>
 
-            <%= link_to 'New post', new_info_path, :class => "btn btn-default" %>
+      <%= link_to 'New post', new_info_path, :class => "btn btn-default" %>
 
   <% end %>
   <div class="indexdiv">
@@ -18,12 +18,14 @@
                 <%= link_to tit, info_path(info, :page => params[:page]) %>
             <% end %>
           </div>
-          <div class="col-md-8 fixfather over">
-            <div class="title">
-              <h3 class="title float"><%= link_to info.title, info_path(info, :page => params[:page]) %></h3>
-            </div>
-            <div class="Article">
-              <%= info.description %>
+          <div class="col-md-8 fixfather">
+            <div class="over">
+              <div class="title">
+                <h3 class="title float"><%= link_to info.title, info_path(info, :page => params[:page]) %></h3>
+              </div>
+              <div class="Article">
+                <%= info.description %>
+              </div>
             </div>
             <%= link_to 'READ MORE', info_path(info, :page => params[:page]), :class => "btn btn-default fixed" %>
           </div>
