@@ -30,6 +30,7 @@ class PostCategoriesController < ApplicationController
 
 
   def update
+
     if @post_category.update(post_category_params)
       flash[:notice] = "book was successfully updated"
       redirect_to :action => :index
