@@ -1,35 +1,38 @@
-<div class="center">
-
-  <h1 class="cco">Edit your profile</h1>
+<div class="bg80 center">
+  <head>
+    <script src="/ckeditor/ckeditor.js"></script>
+  </head>
+  <h2>Edit your profile</h2>
 
 
   <%= form_for @user do |f| %>
-      <div class=" pa">
+      <div class="form-group ">
 
         <%= f.label :first_name, "FINAL_NAME：" %>
 
-        <%= f.text_field :first_name %>
+        <%= f.text_field :first_name, :class => "form-control"%>
       </div>
-      <div class=" pa">
+      <div class="form-group ">
 
         <%= f.label :last_name, "LAST_NAME：" %>
 
-        <%= f.text_field :last_name %>
+        <%= f.text_field :last_name, :class => "form-control" %>
       </div>
-      <div class=" pa">
+      <div class="form-group ">
         <%= f.label :description, "Description：" %>
 
-        <%= f.text_area :description %>
-
       </div>
-      <div class=" pa">
-
-        <%= f.time_zone_select :time_zone %>
-
-        <%= f.submit %>
+      <div data-no-turbolink>
+        <%= f.cktext_area :description, :class => 'someclass', :ckeditor => {:language => 'zh-tw'} %>
       </div>
-      <div class=" pa">
+
+
+      <%= f.time_zone_select :time_zone %>
+
+
       <%= f.file_field :img %>
-      </div>
+
+      <%= f.submit %>
+
   <% end %>
 </div>
