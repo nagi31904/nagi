@@ -1,70 +1,44 @@
+
 <div class="bg80 center">
-<div class="center">
-  <div class="titl cco1 center">
-    <h2>
-      <%= @work_post.title %>
-    </h2>
-  </div>
-  <div class="row bar cco1">
-    <div class="center col-md-4">
-      <div class="ww">
-        <% @work_post.work_categories.each do |g| %>
-            - <%= g.title %> -
-        <% end %>
-      </div>
-      <div class="ww">
-        - <%= @work_post.display_timezone %> -
-      </div>
-      類別,狀態
-    </div>
-    <div class="center col-md-4">
-
-    </div>
-    <div class="col-md-4">
-      <% if @work_category != nil %>
-          <% if current_user != nil && current_user.admin == true %>
-              <%= link_to 'edit', edit_work_post_path(@work_post, :work_category_id => @work_category.id), :class => "btn btn-default" %>
-              <%= link_to 'Delete', work_post_path(@work_post, :page => params[:page], :work_category_id => @work_category.id), :method => :delete, :class => "btn btn-danger" %>
-          <% end %>
-          <%= link_to "bK TO INDEX", work_posts_path(:work_category_id => @work_category.id), :class => "btn btn-default" %>
-      <% else %>
-
-          <% if current_user != nil && current_user.admin == true %>
-              <%= link_to 'edit', edit_work_post_path(@work_post), :class => "btn btn-default" %>
-              <%= link_to 'Delete', work_post_path(@work_post, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
-          <% end %>
-          <%= link_to "bK TO INDEX", work_posts_path, :class => "btn btn-default" %>
+  <h2>
+    <%= @work_post.title %>
+  </h2>
+  <p> - <%= @work_post.display_timezone %> -</p>
+  <% if @work_category != nil %>
+      <% if current_user != nil && current_user.admin == true %>
+          <%= link_to 'edit', edit_work_post_path(@work_post, :work_category_id => @work_category.id), :class => "btn btn-default" %>
+          <%= link_to 'Delete', work_post_path(@work_post, :page => params[:page], :work_category_id => @work_category.id), :method => :delete, :class => "btn btn-danger" %>
       <% end %>
+      <%= link_to "bK TO INDEX", work_posts_path(:work_category_id => @work_category.id), :class => "btn btn-default" %>
+  <% else %>
 
-    </div>
-  </div>
-  <div class="cco">
+      <% if current_user != nil && current_user.admin == true %>
+          <%= link_to 'edit', edit_work_post_path(@work_post), :class => "btn btn-default" %>
+          <%= link_to 'Delete', work_post_path(@work_post, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
+      <% end %>
+      <%= link_to "bK TO INDEX", work_posts_path, :class => "btn btn-default" %>
+  <% end %>
+  <div class="imgbig">
 
-    <div class="center  hidd">
-      <div class="center hidd ">
 
+    <% if @work_post.img.exists? && @work_post.ved? %>
+        <%= image_tag(@work_post.img.url) %>
+        <div class="video-container">
+          <iframe width="560" height="315" src=<%= @work_post.ved %> frameborder="0" allowfullscreen></iframe>
+        </div>
+    <% elsif @work_post.img.exists? %>
+        <%= image_tag(@work_post.img.url) %>
+    <% elsif @work_post.ved? %>
+        <div class="video-container">
+          <iframe width="560" height="315" src=<%= @work_post.ved %> frameborder="0" allowfullscreen></iframe>
+        </div>
+    <% else %>
 
-        <% if @work_post.img.exists? && @work_post.ved? %>
-            <%= image_tag(@work_post.img.url) %>
-            <div class="video-container">
-              <iframe width="560" height="315" src=<%= @work_post.ved %> frameborder="0" allowfullscreen></iframe>
-            </div>
-        <% elsif @work_post.img.exists? %>
-            <%= image_tag(@work_post.img.url) %>
-        <% elsif @work_post.ved? %>
-            <div class="video-container">
-              <iframe width="560" height="315" src=<%= @work_post.ved %> frameborder="0" allowfullscreen></iframe>
-            </div>
-        <% else %>
-
-        <% end %>
-
-      </div>
-      <div class="de text">
-        <%= @work_post.description %>
-      </div>
-    </div>
+    <% end %>
 
   </div>
-</div>
+  <div class="description">
+    <%= @work_post.description %>
+  </div>
+
 </div>

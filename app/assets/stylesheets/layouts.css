@@ -11,8 +11,10 @@
     width: 100%;
 }
 .bg80{
+
     width: 80%;
 }
+
 
 a{
     text-decoration:none
@@ -38,6 +40,10 @@ a:hover {
     margin: 20px 20px;
     overflow: hidden;
 }
+
+
+
+
 .title{
 
 }

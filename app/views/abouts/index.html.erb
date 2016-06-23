@@ -12,7 +12,7 @@
 
       <% if @user != nil %>
           <div class="center big_to">
-            <%= image_tag(@user.img.url) %>
+            <%= image_tag(@user.img.url, size: "200x200") %>
           </div>
       <% end %>
 
@@ -33,9 +33,6 @@
           <%= @user.description %>
       <% end %>
 
-    </div>
-    <div class="bgblock1">
-      <h2 class="center mini-title">Best work</h2>
     </div>
 
 

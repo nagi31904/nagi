@@ -8,7 +8,9 @@
 
   </h1>
   <h2 class="">work 介紹</h2>
-  <%= link_to 'c work', new_work_post_path(:work_category_id => params[:work_category_id]), :class => "btn btn-default" %>
+  <% if current_user != nil && current_user.admin == true %>
+      <%= link_to 'c work', new_work_post_path(:work_category_id => params[:work_category_id]), :class => "btn btn-default" %>
+  <% end %>
   <div class="row">
     <% @work_posts.each do |post| %>
         <div class="col-sm-6 col-md-4">
