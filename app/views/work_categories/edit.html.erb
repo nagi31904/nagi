@@ -1,8 +1,8 @@
 <div class="bg80 center">
-  <div class="texta center titl cco">
-    <h1>edit</h1>
-  </div>
-  <div class="center">
+
+    <h2>EDIT</h2>
+
+  <div>
     <%= form_for @work_category, :url => work_category_path(@work_category), :method => :patch do |f| %>
         <%= render :partial => 'form', :locals => {:f => f} %>
         <%= f.submit "Update", :class => "btn btn-default" %>

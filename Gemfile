@@ -35,6 +35,8 @@ gem "mysql2", :group => :production
 
 gem "kaminari"
 
+gem 'bootstrap-kaminari-views'
+
 gem 'ckeditor'
 
 # Use ActiveModel has_secure_password

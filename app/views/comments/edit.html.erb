@@ -1,7 +1,9 @@
-<div class="texta center titl cco">
+<div class="bg80 center">
+  <head>
+    <script src="/ckeditor/ckeditor.js"></script>
+  </head>
   <h1>edit</h1>
-</div>
-<div class="center">
+
   <%= form_for @comment, :url => post_comment_path(@post,@comment), :method => :patch do |f| %>
       <%= render :partial => 'form', :locals => { :f => f } %>
       <%= f.submit "Update"  ,:class => "btn btn-default"%>

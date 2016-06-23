@@ -23,7 +23,7 @@
                 <%= link_to tit, post_path(post) %>
             <% end %>
           </div>
-          <div class="col-md-8 fixfather">
+          <div class="col-md-8 fixfather over">
             <div class="title">
               <% if post.title != "" %>
                   <h3 class="title float"> <%= link_to post.title, post_path(post, :page => params[:page]) %></h3>
@@ -39,6 +39,7 @@
         </div>
 
     <% end %>
-    <%= paginate @posts %>
+
+    <%= paginate @posts,:theme => 'twitter-bootstrap-3' %>
   </div>
 </div>

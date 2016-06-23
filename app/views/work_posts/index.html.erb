@@ -1,12 +1,12 @@
 <div class="bg80 center">
-  <h1 class="color_b texts60">
+  <h2 class="color_b texts60">
     <% if @work_category != nil %>
         <%= @work_category.title %>
     <% else %>
         ALL
     <% end %>
 
-  </h1>
+  </h2>
   <h2 class="">work 介紹</h2>
   <% if current_user != nil && current_user.admin == true %>
       <%= link_to 'c work', new_work_post_path(:work_category_id => params[:work_category_id]), :class => "btn btn-default" %>
@@ -30,9 +30,11 @@
               <% end %>
             </div>
             <div class="caption fixfather workpost">
-              <h3><%= link_to post.title, work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]) %></h3>
-              <div>
-                <%= simple_format(post.description) %>
+              <div class="over">
+                <h3><%= link_to post.title, work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]) %></h3>
+                <div>
+                  <%= simple_format(post.description) %>
+                </div>
               </div>
               <%= link_to 'READ MORE', work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]), :class => "btn btn-default fixed" %>
             </div>
@@ -41,6 +43,6 @@
         </div>
     <% end %>
   </div>
-
+  <%= paginate @work_posts, :theme => 'twitter-bootstrap-3' %>
 
 </div>

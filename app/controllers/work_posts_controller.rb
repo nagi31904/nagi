@@ -10,10 +10,10 @@ class WorkPostsController < ApplicationController
     if workcate!=nil && params[:work_category_id]!=nil
       @work_category = WorkCategory.find_by_id(params[:work_category_id])
       @work_posts = WorkCategory.find_by_id(params[:work_category_id]).work_posts
-      @work_posts= @work_posts.order(created_at: :desc)
+      @work_posts= @work_posts.order(created_at: :desc).page(params[:page]).per(9)
     elsif workcate==nil && params[:work_category_id]==nil
       @work_posts = WorkPost.all
-      @work_posts= @work_posts.order(created_at: :desc)
+      @work_posts= @work_posts.order(created_at: :desc).page(params[:page]).per(9)
     else
       render file: "#{Rails.root}/public/404.html", layout: false, status: 404
     end

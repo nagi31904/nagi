@@ -63,7 +63,7 @@ class CommentsController < ApplicationController
     if current_user != @comment.user
       redirect_to :back
     else
-      flash[:alert] = "book was successfully deleted"
+
       @comment.destroy
       respond_to do |format|
         format.js

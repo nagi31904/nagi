@@ -1,37 +1,30 @@
 <div class="bg80 center">
-  <div class="ti2 titl">
-    <h1>category_edit</h1>
+
+  <h2>WORK-CATEGORY</h2>
+
+
+  <HR size="30">
+  <% @work_categories.each do |work_category| %>
+
+      <div class="col-md-6">
+        <%= work_category.title %>
+      </div>
+      <div class="col-md-6">
+
+            <%= link_to 'edit', edit_work_category_path(work_category), :class => "btn btn-default" %>
+
+            <%= link_to 'Delete', work_category_path(work_category, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
+
+      </div>
+
+  <% end %>
+
+
+  <div>
+    <%= form_for @work_category, :url => work_categories_path(@work_category) do |f| %>
+        <%= render :partial => 'form', :locals => {:f => f} %>
+        <%= f.submit "Create", :class => "btn btn-primary" %>
+    <% end %>
   </div>
 
-  <div class="center container cco">
-    <table class="center ">
-      <% @work_categories.each do |work_category| %>
-          <p class="center row hi">
-          <div class="col-md-6 center">
-            <%= work_category.title %>
-          </div>
-          <div class="col-md-6 center">
-            <ul class="list-inline list-unstyled">
-              <li>
-                <%= link_to 'edit', edit_work_category_path(work_category), :class => "btn btn-default" %>
-              </li>
-              <li>
-                <%= link_to 'Delete', work_category_path(work_category, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
-              </li>
-            </ul>
-          </div>
-          </p>
-      <% end %>
-    </table>
-  </div>
-  <div class="tt">
-    <div class="center">
-      <div class="center ">
-        <%= form_for @work_category, :url => work_categories_path(@work_category) do |f| %>
-            <%= render :partial => 'form', :locals => {:f => f} %>
-            <%= f.submit "Create", :class => "btn btn-primary" %>
-        <% end %>
-      </div>
-    </div>
-  </div>
 </div>

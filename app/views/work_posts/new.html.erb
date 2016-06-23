@@ -1,10 +1,8 @@
 <div class="bg80 center">
-  <div class="abc">
-    <div class="center  cco1">
-      <h1>NEW_WORK_POST</h1>
-    </div>
-  </div>
-  <div class="center ">
+  <head>
+    <script src="/ckeditor/ckeditor.js"></script>
+  </head>
+  <h2>NEW_WORK_POST</h2>
     <% if @work_category !=nil %>
         <%= form_for @work_post, :url => work_posts_path(:work_category_id => @work_category.id), :method => :post do |f| %>
 
@@ -23,5 +21,5 @@
         <% end %>
 
     <% end %>
-  </div>
+
 </div>

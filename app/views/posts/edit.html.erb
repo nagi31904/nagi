@@ -3,14 +3,14 @@
     <script src="/ckeditor/ckeditor.js"></script>
   </head>
 
-  <div class="texta center titl cco">
-    <h1>EDIT</h1>
-  </div>
-  <div class="center">
-    <%= form_for @post, :url => post_path(@post), :method => :patch do |f| %>
-        <%= render :partial => 'form', :locals => {:f => f} %>
-        <%= f.submit "Update", :class => "btn btn-default" %>
-        <%= link_to "back to show", post_path, :class => "btn btn-default" %>
-    <% end %>
-  </div>
+
+  <h1>EDIT</h1>
+
+
+  <%= form_for @post, :url => post_path(@post), :method => :patch do |f| %>
+      <%= render :partial => 'form', :locals => {:f => f} %>
+      <%= f.submit "Update", :class => "btn btn-default" %>
+      <%= link_to "back to show", post_path, :class => "btn btn-default" %>
+  <% end %>
+
 </div>

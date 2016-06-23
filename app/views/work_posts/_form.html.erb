@@ -1,27 +1,27 @@
-<div class="form-group ">
-  <div class="cco">
-    <%= f.label :title, "TITLE" %>
-  </div>
-  <%= f.text_field :title %>
+<div class="form-group">
+  <P><%= f.label :title, "TITLE" %></P>
+
+  <%= f.text_field :title, :class => "form-control" %>
 </div>
 <div class="form-group">
-  <div class="cco">
-    <%= f.label :description, "Description" %>
-  </div>
-  <%= f.text_area :description %>
+  <P><%= f.label :description, "Description" %></P>
+</div>
+<div data-no-turbolink>
+  <%= f.cktext_area :description, :class => 'someclass', :ckeditor => {:language => 'zh-tw'} %>
 </div>
 <div class="form-group">
-  <div class="cco">
-    <%= f.label :ved, "vedio_small" %>
-  </div>
-  <%= f.text_area :ved %>
+  <P><%= f.label :ved, "vedio_small" %></P>
+
+  <%= f.text_area :ved, :class => "form-control" %>
 </div>
 
-<div class="cco center log ma">
+
+<div class="form-group">
   <%= f.file_field :img %>
 </div>
 
-<%= f.collection_check_boxes(:work_category_ids, WorkCategory.all, :id, :title) %>
+
+<P><%= f.collection_check_boxes(:work_category_ids, WorkCategory.all, :id, :title) %></P>
 
 <% if @work_post.errors.any? %>
     <ul>

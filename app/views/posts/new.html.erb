@@ -1,15 +1,13 @@
 <div class="bg80 center">
-<head>
-  <script src="/ckeditor/ckeditor.js"></script>
-</head>
+  <head>
+    <script src="/ckeditor/ckeditor.js"></script>
+  </head>
 
-<div class="abc">
-  <div class="center  cco">
-    <h1>NEW_POST</h1>
-  </div>
-</div>
-<div class="center ">
-  <body>
+
+  <h1>NEW_POST</h1>
+
+
+
   <%= form_for @post, :url => posts_path do |f| %>
 
       <%= render :partial => 'form', :locals => {:f => f} %>
@@ -17,6 +15,6 @@
       <%= link_to "bK TO INDEX", posts_url, :class => "btn btn-default" %>
 
   <% end %>
-  </body>
-</div>
+
+
 </div>

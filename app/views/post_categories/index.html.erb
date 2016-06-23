@@ -1,43 +1,33 @@
 <div class="bg80 center">
-  <div class="ti2 titl">
-    <h1>category_edit</h1>
-  </div>
-  <div class="BT">
-    <ul class="list-inline list-unstyled">
-      <li>
-        <%= link_to 'back post', posts_path, :class => "btn btn-default" %>
-      </li>
-    </ul>
-  </div>
-  <div class="center container cco">
-    <table class="center ">
-      <% @post_categories.each do |post_category| %>
-          <p class="center row hi">
-          <div class="col-md-6 center">
-            <%= post_category.title %>
-          </div>
-          <div class="col-md-6 center">
-            <ul class="list-inline list-unstyled">
-              <li>
-                <%= link_to 'edit', edit_post_category_path(post_category), :class => "btn btn-default" %>
-              </li>
-              <li>
-                <%= link_to 'Delete', post_category_path(post_category, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
-              </li>
-            </ul>
-          </div>
-          </p>
-      <% end %>
-    </table>
-  </div>
-  <div class="tt">
-    <div class="center">
-      <div class="center ">
-        <%= form_for @post_category, :url => post_categories_path(@post_category) do |f| %>
-            <%= render :partial => 'form', :locals => {:f => f} %>
-            <%= f.submit "Create", :class => "btn btn-primary" %>
-        <% end %>
+
+  <h2>POST-CATEGORY</h2>
+
+
+
+  <%= link_to 'back post', posts_path, :class => "btn btn-default" %>
+
+  <HR size="30">
+  <% @post_categories.each do |post_category| %>
+
+      <div class="col-md-6">
+        <%= post_category.title %>
       </div>
-    </div>
+      <div class="col-md-6">
+
+            <%= link_to 'edit', edit_post_category_path(post_category), :class => "btn btn-default" %>
+
+            <%= link_to 'Delete', post_category_path(post_category, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
+
+      </div>
+
+
+  <% end %>
+
+
+  <div>
+    <%= form_for @post_category, :url => post_categories_path(@post_category) do |f| %>
+        <%= render :partial => 'form', :locals => {:f => f} %>
+        <%= f.submit "Create", :class => "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
