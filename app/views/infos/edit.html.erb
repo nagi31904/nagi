@@ -1,10 +1,12 @@
-<div class="texta center titl cco">
-  <h1>EDIT</h1>
-</div>
-<div class="center">
-  <%= form_for @info, :url => info_path(@info), :method => :patch do |f| %>
-      <%= render :partial => 'form', :locals => { :f => f } %>
-      <%= f.submit "Update"  ,:class => "btn btn-default"%>
-      <%= link_to "back to show", info_path  ,:class => "btn btn-default"%>
-  <% end %>
+<div class="bg80 center">
+  <div class="texta center titl cco">
+    <h1>EDIT</h1>
+  </div>
+  <div class="center">
+    <%= form_for @info, :url => info_path(@info), :method => :patch do |f| %>
+        <%= render :partial => 'form', :locals => {:f => f} %>
+        <%= f.submit "Update", :class => "btn btn-default" %>
+        <%= link_to "back to show", info_path, :class => "btn btn-default" %>
+    <% end %>
+  </div>
 </div>

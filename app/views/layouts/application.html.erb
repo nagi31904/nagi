@@ -6,70 +6,97 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-  <%= favicon_link_tag 'black-cat-16.png'%>
+  <%= favicon_link_tag 'black-cat-16.png' %>
 
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to image_tag("icon.png", size: "20x20"), root_path, class: "navbar-brand" %>
 
+      </div>
 
-  <nav class="navbar-fixed-top">
-    <div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to "NEWS", infos_path %></li>
+          <li><%= link_to "ABOUT", abouts_path %></li>
+          <li><%= link_to "POST", posts_path %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">WORK
+              <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to "work", work_posts_path %>
+              </li>
+              <% @work_categories.each do |work_category| %>
+                  <li>
+                    <%= link_to work_category.title, work_posts_path(:work_category_id => work_category.id) %>
+                  </li>
 
-      <ul class="list-unstyled" id="main-ul">
-
-        <li> <%= link_to "Home", root_path, class: "link-3" %></li>
-
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">Introduction
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><%= link_to "News", infos_path %></li>
-            <li><%= link_to "About Me", abouts_path %></li>
-          </ul>
-        </li>
-
-
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">work
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <% @work_categories.each do |work_category| %>
-                <li>
-                  <%= link_to work_category.title, work_posts_path(:work_category_id => work_category.id) %>
-                </li>
-
-            <% end %>
-          </ul>
-        </li>
-        <li><%= link_to "Blog", posts_path %></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">mander centre
-            <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li>
-              <% if current_user %>
-                  <%= link_to('mander data', user_path(current_user), class: "link-3") %>
-              <% else %>
-                  <%= link_to('SIGN UP', new_registration_path(:user), class: "link-3") %>
               <% end %>
-            </li>
-            <li>
-              <% if current_user %>
-                  <%= link_to('SING OUT', destroy_user_session_path, :method => :delete, class: "link-3") %>
+              <% if current_user != nil && current_user.admin == true %>
+                  <li><%= link_to 'category', work_categories_path, :class => "link-3" %></li>
               <% else %>
-                  <%= link_to('SIGN IN', new_session_path(:user), class: "link-3") %>
+
               <% end %>
-            </li>
-          </ul>
-        </li>
 
-      </ul>
+            </ul>
+          </li>
+        </ul>
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://github.com/nagi31904"><%=image_tag("github.png", size: "20x20")%></a></li>
+          <li><a href="https://www.facebook.com/zongzhej1?ref=bookmarks"><%=image_tag("fb.png", size: "20x20")%></a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MEMBER<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <% if current_user %>
+                    <%= link_to('member data', user_path(current_user), class: "link-3") %>
+                <% else %>
+                    <%= link_to('SIGN UP', new_registration_path(:user), class: "link-3") %>
+                <% end %>
+              </li>
+              <li>
+                <% if current_user %>
+                    <%= link_to('SING OUT', destroy_user_session_path, :method => :delete, class: "link-3") %>
+                <% else %>
+                    <%= link_to('SIGN IN', new_session_path(:user), class: "link-3") %>
+                <% end %>
+              </li>
+              <li>
+                <% if current_user %>
+                    <%= link_to('CHANGE PASSWORD', edit_registration_path(:user), class: "link-3") %>
+                <% else %>
+                <% end %>
+              </li>
+              <li>
+                <% if current_user %>
+                    <%= link_to "修改個人資料", edit_user_path(current_user), :class => "link-3" %>
+                <% else %>
+                <% end %>
+              </li>
 
-
-    </div>
-
+            </ul>
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
   </nav>
 
-
-    <script src="/ckeditor/ckeditor.js"></script>
+  <script src="/ckeditor/ckeditor.js"></script>
 
 </head>
 
@@ -91,7 +118,7 @@
 
 
 
-<div class="bg">
+<div class="bg100">
 
 
   <%= yield %>

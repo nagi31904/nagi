@@ -7,34 +7,10 @@ class WelcomeIndexsController < ApplicationController
 
   def blog_index
 
-    work_post_ca_webs = WorkCategory.find_by_title("web")
+    @infos = @infos.order(created_at: :desc).limit(5)
 
+    @posts = @posts.order(updated_at: :desc).limit(5)
 
-    if work_post_ca_webs != nil
-
-      @work_category_id=WorkCategory.find_by_title("web").id
-      @work_post_webs=work_post_ca_webs.work_posts
-      @work_post_webs = @work_post_webs.limit(9)
-      @number_post = @work_post_webs.limit(9)
-      @number = @number_post.size
-
-      @number_v = (@number-1)/3
-
-    else
-
-    end
-
-
-
-
-
-    @infos = @infos.order(created_at: :desc).limit(9)
-    @number_info = @infos.size
-    @number_info_v = ( @number_info-1)/3
-
-    @posts = @posts.order(updated_at: :desc).limit(9)
-    @number_post = @posts.size
-    @number_post_v = ( @number_post-1)/3
 
 
   end

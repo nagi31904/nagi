@@ -1,49 +1,33 @@
+<div class="bg80 center">
+  <h1 class="color_b texts60">INFOS</h1>
+  <h2 class="">NEWS</h2>
+  <% if current_user != nil && current_user.admin == true %>
 
-<% if current_user != nil && current_user.admin == true %>
-    <div class="BT cco1">
-      <ul class="list-inline list-unstyled">
-        <li>
-          <%= link_to 'New post', new_info_path, :class => "btn btn-default" %>
-        </li>
-      </ul>
-    </div>
-<% end %>
-<div class="center container cco">
-  <div class="center ">
-    <div class="row hi center">
-      <div class="col-md-2 center">
-        CATEGORY
-      </div>
-      <div class="col-md-2 center">
-        TITLE
-      </div>
-      <div class="col-md-6 center">
-        Introduction
-      </div>
-      <div class="col-md-2 center">
-        RELEASE TIME
-      </div>
+            <%= link_to 'New post', new_info_path, :class => "btn btn-default" %>
 
-
-    </div>
-    <div class="bar5">
-      <% @infos.each do |info| %>
-          <div class="center row hi">
-            <div class="col-md-2 center">
-              類別
+  <% end %>
+  <div class="indexdiv">
+    <% @infos.each do |info| %>
+        <div class="index_post row thumbnail">
+          <div class="img col-md-3">
+            <% if info.img.exists? %>
+                <% tit = image_tag(info.img.url(:medium)) %>
+                <%= link_to tit, info_path(info, :page => params[:page]) %>
+            <% else %>
+                <% tit = image_tag("missing.png", size: "200x200") %>
+                <%= link_to tit, info_path(info, :page => params[:page]) %>
+            <% end %>
+          </div>
+          <div class="col-md-8 fixfather">
+            <div class="title">
+              <h3 class="title float"><%= link_to info.title, info_path(info, :page => params[:page]) %></h3>
             </div>
-            <div class="col-md-2 center">
-              <%= link_to info.title, info_path(info, :page => params[:page]) %>
-            </div>
-            <div class="col-md-6 text">
+            <div class="Article">
               <%= info.description %>
             </div>
-            <div class="col-md-2 center">
-              <%= info.display_hour %>
-            </div>
-
+            <%= link_to 'READ MORE', info_path(info, :page => params[:page]), :class => "btn btn-default fixed" %>
           </div>
-      <% end %>
-    </div>
+        </div>
+    <% end %>
   </div>
 </div>

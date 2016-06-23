@@ -1,41 +1,43 @@
-<div class="ti2 titl clearfix">
-  <div class="sp col-md-1"></div>
-  <div class="col-md-10 row ti4">
-    <h1>ABOUT ME</h1>
-  </div>
-</div>
-
-
-<div class="bgsen">
-  <div class="bgblock3">
-
-    <% if @user != nil %>
-       <div class="center big_to">
-         <%= image_tag(@user.img.url) %>
-       </div>
-    <% end %>
-
-  </div>
-  <div class="bgblock1">
-    <h2 class="center mini-title">基本資料</h2>
-    <div class="me">
-
-      <% if @user != nil %>
-          <h3>first_name : <%= @user.first_name %></h3>
-          <h3>last_name : <%= @user.last_name %></h3>
-      <% end %>
+<div class="bg80 center">
+  <div class="ti2 titl clearfix">
+    <div class="sp col-md-1"></div>
+    <div class="col-md-10 row ti4">
+      <h1>ABOUT ME</h1>
     </div>
   </div>
-  <div class="bgblock2">
-    <h2 class="center mini-title">description</h2>
-    <% if @user != nil %>
-        <%= @user.description %>
-    <% end %>
+
+
+  <div class="bgsen">
+    <div class="bgblock3">
+
+      <% if @user != nil %>
+          <div class="center big_to">
+            <%= image_tag(@user.img.url) %>
+          </div>
+      <% end %>
+
+    </div>
+    <div class="bgblock1">
+      <h2 class="center mini-title">基本資料</h2>
+      <div class="me">
+
+        <% if @user != nil %>
+            <h3>first_name : <%= @user.first_name %></h3>
+            <h3>last_name : <%= @user.last_name %></h3>
+        <% end %>
+      </div>
+    </div>
+    <div class="bgblock2">
+      <h2 class="center mini-title">description</h2>
+      <% if @user != nil %>
+          <%= @user.description %>
+      <% end %>
+
+    </div>
+    <div class="bgblock1">
+      <h2 class="center mini-title">Best work</h2>
+    </div>
+
 
   </div>
-  <div class="bgblock1">
-    <h2 class="center mini-title">Best work</h2>
-  </div>
-
-
 </div>

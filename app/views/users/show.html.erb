@@ -1,4 +1,5 @@
-<div class="ti2 titl clearfix">
+<div class="bg80 center">
+
   <div class="sp col-md-1"></div>
   <div class="col-md-10 row ">
     <h1>
@@ -9,68 +10,66 @@
       <% end %>
     </h1>
   </div>
-</div>
-
-<div class="row center cco">
-  <div class="about test row center">
-    <ul class="list-inline list-unstyled bbc">
-      <li>
-        <% if @user == current_user %>
-            <%= link_to "修改個人資料", edit_user_path(current_user), :class => "btn btn-default" %>
-            <%= link_to('CHANGE PASSWORD', edit_registration_path(:user), class: "link-3") %>
-        <% end %>
-        <%= link_to "Home", root_path, :class => "btn btn-default" %>
-        <%= link_to "friend",friendships_path(:friend_id =>@user ) ,:method => :post, :class => "btn btn-default" %>
-      </li>
-    </ul>
 
 
-    <div class="pp">
-      圖片
-      <%= image_tag(@user.img.url(:medium))%>
-    </div>
-    <div class="bb row">
-      <div class="col-md-8">
-        <div class="dds">
-          <h3>基本資料</h3>
-          <div class="center">
-            <p class="ffff">first_name : <%= @user.first_name %></p>
-            <p class="ffff">last_name : <%= @user.last_name %></p>
+  <div class="row center cco">
+    <div class="about test row center">
+      <ul class="list-inline list-unstyled bbc">
+        <li>
+          <%= link_to "Home", root_path, :class => "btn btn-default" %>
+          <%= link_to "friend", friendships_path(:friend_id => @user), :method => :post, :class => "btn btn-default" %>
+        </li>
+      </ul>
+
+
+      <div class="pp">
+        圖片
+        <%= image_tag(@user.img.url(:medium)) %>
+      </div>
+      <div class="bb row">
+        <div class="col-md-8">
+          <div class="dds">
+            <h3>基本資料</h3>
+            <div class="center">
+              <p class="ffff">first_name : <%= @user.first_name %></p>
+              <p class="ffff">last_name : <%= @user.last_name %></p>
+
+            </div>
 
           </div>
+          <div class="">
+            <h3>firend</h3>
+            <div class="ttw">
+              <% @my_friendships.each do |u| %>
+                  <p> <%= u.friend.email %></p>
+              <% end %>
+            </div>
 
-        </div>
-        <div class="">
-          <h3>firend</h3>
-          <div class="ttw">
-            <% @my_friendships.each do |u| %>
-                <p> <%= u.friend.email %></p>
-            <% end %>
           </div>
+        </div>
+        <div class=" col-md-4">
+          <h3>firend_create</h3>
 
+          <% @anti_friendships.each do |f| %>
+              <div> <%= f.user.email %></div>
+              <div><%= link_to "unfriend", friendship_path(:friend_id => f.user), :method => :delete, :class => "btn btn-default" %></div>
+              <div><%= link_to "confirm", confirm_friendship_path(f, :friend_id => f.user), method: :post, :class => "btn btn-default" %></div>
+
+
+          <% end %>
+        </div>
+
+
+      </div>
+      <div class="cc">
+        <h3>description</h3>
+        <div class="center">
+          <%= @user.description %>
         </div>
       </div>
-      <div class=" col-md-4">
-        <h3>firend_create</h3>
-
-        <% @anti_friendships.each do |f| %>
-            <div> <%= f.user.email %></div>
-            <div><%= link_to "unfriend", friendship_path(:friend_id => f.user ) ,:method => :delete, :class => "btn btn-default" %></div>
-            <div><%= link_to "confirm", confirm_friendship_path(f,:friend_id =>f.user  ),method: :post , :class => "btn btn-default" %></div>
-
-
-        <% end %>
-      </div>
 
 
     </div>
-    <div class="cc">
-      <h3>description</h3>
-      <div class="center">
-        <%= @user.description %>
-      </div>
-    </div>
-
 
   </div>
 </div>

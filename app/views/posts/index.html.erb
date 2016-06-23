@@ -1,5 +1,7 @@
-<% if current_user != nil && current_user.admin == true %>
-    <div class="BT cco1">
+<div class="bg80 center">
+  <h1 class="color_b texts60">POST</h1>
+  <h2 class="">技術分享</h2>
+  <% if current_user != nil && current_user.admin == true %>
       <ul class="list-inline list-unstyled">
         <li>
           <%= link_to 'New post', new_post_path, :class => "btn btn-default" %>
@@ -8,64 +10,34 @@
           <%= link_to 'category', post_categories_path, :class => "btn btn-default" %>
         </li>
       </ul>
-    </div>
-<% end %>
-
-<div class="center container cco">
-  <div class="row hi center">
-    <div class="col-md-2 center">
-      TITLE
-    </div>
-    <div class="col-md-2 center">
-      CATEGORY
-    </div>
-    <div class="col-md-2 center">
-      RELEASE TIME
-    </div>
-    <div class="col-md-2 center">
-      COUNT COMMENT
-    </div>
-    <div class="col-md-2 center">
-      LAST COMMENT TIME
-    </div>
-    <div class="col-md-2 center">
-      LAST COMMENT USER
-    </div>
-
-  </div>
-  <div class="center bar3">
-
+  <% end %>
+  <div class="indexdiv">
     <% @posts.each do |post| %>
-        <div class="row hi">
-          <div class="col-md-2 center">
-            <% if post.title != "" %>
-                <%= link_to post.title, post_path(post, :page => params[:page]) %>
+        <div class="index_post row thumbnail">
+          <div class="img col-md-3">
+            <% if post.img.exists? %>
+                <% tit = image_tag(post.img.url(:medium)) %>
+                <%= link_to tit, post_path(post, :page => params[:page]) %>
             <% else %>
-                <%= link_to "no title", post_path(post, :page => params[:page]) %>
+                <% tit = image_tag("missing.png", size: "200x200") %>
+                <%= link_to tit, post_path(post) %>
             <% end %>
           </div>
-          <div class="col-md-2 center">
-            <% post.post_categories.each do |cate| %>
-                -<%= cate.title %>-
-            <% end %>
-          </div>
-          <div class="col-md-2 center">
-            <%= post.display_timezone %>
-          </div>
-          <div class="col-md-2 center">
-            <%= post.comments_count %>
-          </div>
-          <div class="col-md-2 center">
-            <% if post.comments.last %>
-                <%= post.comments.last.display_timezone %>
-            <% end %>
-          </div>
-          <div class="col-md-2 center">
-            <% if post.comments.last %>
-                <%= post.comments.last.user.email %>
-            <% end %>
+          <div class="col-md-8 fixfather">
+            <div class="title">
+              <% if post.title != "" %>
+                  <h3 class="title float"> <%= link_to post.title, post_path(post, :page => params[:page]) %></h3>
+              <% else %>
+                  <h3 class="title float"> <%= link_to "no title", post_path(post, :page => params[:page]) %></h3>
+              <% end %>
+            </div>
+            <div class="Article">
+              <%= simple_format(post.description) %>
+            </div>
+            <%= link_to 'READ MORE', post_path(post, :page => params[:page]), :class => "btn btn-default fixed" %>
           </div>
         </div>
+
     <% end %>
     <%= paginate @posts %>
   </div>

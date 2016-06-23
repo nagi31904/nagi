@@ -24,7 +24,6 @@ Rails.application.routes.draw do
 
   resources :post_categories
   resources :work_categories
-  resources :index_work_categories
 
 
   # The priority is based upon order of creation: first created -> highest priority.

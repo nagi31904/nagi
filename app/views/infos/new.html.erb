@@ -1,14 +1,16 @@
-<div class="abc">
-  <div class="center titl cco">
-    <h1>NEW_INFO</h1>
+<div class="bg80 center">
+  <div class="abc">
+    <div class="center titl cco">
+      <h1>NEW_INFO</h1>
+    </div>
   </div>
-</div>
-<div class="center ">
-  <%= form_for @info, :url => infos_path do |f| %>
+  <div class="center ">
+    <%= form_for @info, :url => infos_path do |f| %>
 
-      <%= render :partial => 'form', :locals => { :f => f } %>
-      <%= f.submit "Create" ,:class => "btn btn-primary"%>
-      <%= link_to "bK TO INDEX",infos_url ,:class => "btn btn-default"%>
+        <%= render :partial => 'form', :locals => {:f => f} %>
+        <%= f.submit "Create", :class => "btn btn-primary" %>
+        <%= link_to "bK TO INDEX", infos_url, :class => "btn btn-default" %>
 
-  <% end %>
+    <% end %>
+  </div>
 </div>

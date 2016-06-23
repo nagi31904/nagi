@@ -1,114 +1,116 @@
-<div class="center">
-  <div class="titl cco center">
-    <h2>
-      <%= @post.title %>
-    </h2>
-  </div>
-  <div class="row bar cco">
-    <div class="center col-md-4">
-      <div class="ww">
-        <% @post.post_categories.each do |g| %>
-            - <%= g.title %> -
-        <% end %>
-      </div>
-      <div class="ww">
-        - <%= @post.display_timezone %> -
-      </div>
-
-      <% like = @post.finy_like_by(current_user) %>
-
-      <h2><%= @post.likes.count %></h2>
-      <% if current_user != nil %>
-          <% if like %>
-              <%= link_to "Unlike", post_like_path(@post, like), :method => :delete, :class => "btn btn-primary btn-sm" %>
-          <% else %>
-              <%= link_to "Like", post_likes_path(@post), :method => :post, :class => "btn btn-primary btn-sm" %>
+<div class="bg80 center">
+  <div class="center">
+    <div class="titl cco center">
+      <h2>
+        <%= @post.title %>
+      </h2>
+    </div>
+    <div class="row bar cco">
+      <div class="center col-md-4">
+        <div class="ww">
+          <% @post.post_categories.each do |g| %>
+              - <%= g.title %> -
           <% end %>
-      <% else %>
-          <%= link_to "Like", post_likes_path(@post), :method => :post, :class => "btn btn-primary btn-sm" %>
+        </div>
+        <div class="ww">
+          - <%= @post.display_timezone %> -
+        </div>
+
+        <% like = @post.finy_like_by(current_user) %>
+
+        <h2><%= @post.likes.count %></h2>
+        <% if current_user != nil %>
+            <% if like %>
+                <%= link_to "Unlike", post_like_path(@post, like), :method => :delete, :class => "btn btn-primary btn-sm" %>
+            <% else %>
+                <%= link_to "Like", post_likes_path(@post), :method => :post, :class => "btn btn-primary btn-sm" %>
+            <% end %>
+        <% else %>
+            <%= link_to "Like", post_likes_path(@post), :method => :post, :class => "btn btn-primary btn-sm" %>
 
 
+        <% end %>
+
+      </div>
+      <div class="center col-md-4">
+
+      </div>
+      <% if current_user != nil && current_user.admin == true %>
+          <div class="col-md-4">
+            <%= link_to 'edit', edit_post_path(@post), :class => "btn btn-default" %>
+            <%= link_to 'Delete', post_path(@post, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
+          </div>
       <% end %>
-
     </div>
-    <div class="center col-md-4">
+    <div class="row cco">
+      <div class="center col-md-2">
 
-    </div>
-    <% if current_user != nil && current_user.admin == true %>
-        <div class="col-md-4">
-          <%= link_to 'edit', edit_post_path(@post), :class => "btn btn-default" %>
-          <%= link_to 'Delete', post_path(@post, :page => params[:page]), :method => :delete, :class => "btn btn-danger" %>
+      </div>
+      <div class="center col-md-8">
+        <div class="de text">
+          <%= simple_format(@post.description) %>
+
         </div>
-    <% end %>
-  </div>
-  <div class="row cco">
-    <div class="center col-md-2">
-
-    </div>
-    <div class="center col-md-8">
-      <div class="de text">
-        <%= simple_format(@post.description) %>
+      </div>
+      <div class="col-md-2">
 
       </div>
     </div>
-    <div class="col-md-2">
-
+    <div class="tit2 cco">
+      <h2>
+        <%= "COMMENT" %>
+      </h2>
     </div>
-  </div>
-  <div class="tit2 cco">
-    <h2>
-      <%= "COMMENT" %>
-    </h2>
-  </div>
-  <div class="comment cco">
-    <div class="center container">
-      <div class="center">
-        <div id="comments-list">
-          <% @comments.each do |comment| %>
-              <div id="comment-<%= comment.id %>">
-                <div class="center row hi">
-                  <div class="col-md-4 center text">
+    <div class="comment cco">
+      <div class="center container">
+        <div class="center">
+          <div id="comments-list">
+            <% @comments.each do |comment| %>
+                <div id="comment-<%= comment.id %>">
+                  <div class="center row hi">
+                    <div class="col-md-4 center text">
+                    </div>
+                    <div class="col-md-2 center">
+                    </div>
+                    <div class="col-md-2 center">
+                    </div>
+                    <div class="col-md-4 center">
+                      <% if current_user == comment.user %>
+                          <%= link_to 'edit', edit_post_comment_path(@post, comment), :class => "btn btn-default" %>
+                          <%= link_to 'D belete', post_comment_path(@post, comment, :page => @page), :remote => true, :method => :delete, :class => "btn btn-danger" %>
+                      <% end %>
+                    </div>
                   </div>
-                  <div class="col-md-2 center">
-                  </div>
-                  <div class="col-md-2 center">
-                  </div>
-                  <div class="col-md-4 center">
-                    <% if current_user == comment.user %>
-                        <%= link_to 'edit', edit_post_comment_path(@post, comment), :class => "btn btn-default" %>
-                        <%= link_to 'D belete', post_comment_path(@post, comment, :page => @page), :remote => true, :method => :delete, :class => "btn btn-danger" %>
-                    <% end %>
-                  </div>
-                </div>
-                <div class="center row hi">
-                  <div class="col-md-4 center text">
-                    <%= simple_format(comment.description) %>
-                  </div>
-                  <div class="col-md-4 center">
-                    <% if comment.user.email != nil %>
-                        <% t = comment.user.display_name %>
-                        <%= link_to t, user_path(comment.user) %>
-                    <% end %>
-                  </div>
-                  <div class="col-md-4 center">
-                    <%= comment.display_timezone %>
-                  </div>
+                  <div class="center row hi">
+                    <div class="col-md-4 center text">
+                      <%= simple_format(comment.description) %>
+                    </div>
+                    <div class="col-md-4 center">
+                      <% if comment.user.email != nil %>
+                          <% t = comment.user.display_name %>
+                          <%= link_to t, user_path(comment.user) %>
+                      <% end %>
+                    </div>
+                    <div class="col-md-4 center">
+                      <%= comment.display_timezone %>
+                    </div>
 
+                  </div>
                 </div>
-              </div>
+            <% end %>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="tt">
+      <div class="center">
+        <div class="center ">
+          <%= form_for @comment, :url => post_comments_path(@post), :remote => true do |f| %>
+              <%= render :partial => 'comment_form', :locals => {:f => f} %>
+              <%= f.submit "Create", :class => "btn btn-primary" %>
           <% end %>
         </div>
-
-      </div>
-    </div>
-  </div>
-  <div class="tt">
-    <div class="center">
-      <div class="center ">
-        <%= form_for @comment, :url => post_comments_path(@post), :remote => true do |f| %>
-            <%= render :partial => 'comment_form', :locals => {:f => f} %>
-            <%= f.submit "Create", :class => "btn btn-primary" %>
-        <% end %>
       </div>
     </div>
   </div>
