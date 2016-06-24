@@ -32,7 +32,7 @@
             <div class="caption fixfather workpost">
               <div class="over">
                 <h3><%= link_to post.title, work_post_path(post, :page => params[:page], :work_category_id => params[:work_category_id]) %></h3>
-                <div>
+                <div class="postwork">
                   <%= simple_format(post.description) %>
                 </div>
               </div>

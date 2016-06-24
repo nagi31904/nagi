@@ -22,3 +22,7 @@
     overflow: hidden;
     text-overflow:ellipsis;
 }
+.postwork{
+    height: 100px;
+    overflow: hidden;
+}
