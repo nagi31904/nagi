@@ -11,6 +11,7 @@
 .postimg{
     overflow: hidden;
     height: 200px;
+    text-align: center;
 }
 .over{
     overflow: hidden;
