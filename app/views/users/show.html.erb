@@ -9,8 +9,14 @@
     <% end %>
   </h1>
 
+  <% if @user.img.exists? %>
+      <%= image_tag(@user.img.url(:medium)) %>
 
-  <%= image_tag(@user.img.url(:medium)) %>
+  <% else %>
+      <%= image_tag("avatar.png", size: "300x200") %>
+
+  <% end %>
+
 
   <ul class="list-inline list-unstyled">
     <li>
@@ -28,7 +34,15 @@
   <h3>基本資料</h3>
 
 
-  <h4>name : <%= @user.first_name+""+@user.last_name %></h4>
+  <h4>name :
+    <% if @user.last_name == nil %>
+
+    <%elsif @user.first_name == nil && @user.last_name != nil %>
+        <%=@user.last_name %>
+    <% else %>
+        <%= @user.first_name+""+@user.last_name %>
+    <% end %>
+  </h4>
 
 
   <h3>description</h3>
