@@ -18,4 +18,4 @@
 //= require sweetalert.min
 //= require ckeditor/init
 //= require test
-
+//= require ckeditor_ajax

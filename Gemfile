@@ -39,6 +39,8 @@ gem 'bootstrap-kaminari-views'
 
 gem 'ckeditor'
 
+gem 'rails_admin'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
