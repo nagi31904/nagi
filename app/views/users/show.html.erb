@@ -28,12 +28,12 @@
   <h3>基本資料</h3>
 
 
-  <h4>name : <%=@user.first_name+""+@user.last_name %></h4>
+  <h4>name : <%= @user.first_name+""+@user.last_name %></h4>
 
 
   <h3>description</h3>
 
-  <%= @user.description %>
+  <%= simple_format(@user.description) %>
 
 
   <h3>firend</h3>
@@ -54,12 +54,6 @@
 
 
   <% end %>
-
-
-
-
-
-
 
 
 </div>
