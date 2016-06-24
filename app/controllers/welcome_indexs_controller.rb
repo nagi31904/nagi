@@ -7,9 +7,9 @@ class WelcomeIndexsController < ApplicationController
 
   def blog_index
 
-    @infos = @infos.order(created_at: :desc).limit(5)
+    @infos = @infos.order(created_at: :desc).limit(3)
 
-    @posts = @posts.order(updated_at: :desc).limit(5)
+    @posts = @posts.order(updated_at: :desc).limit(3)
 
 
 

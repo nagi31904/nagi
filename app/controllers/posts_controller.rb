@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     if params[:category_id]
       @posts = Category.find(params[:category_id]).posts
     else
-      @posts = Post.page(params[:page]).per(3)
+      @posts = Post.page(params[:page]).per(9)
     end
     if params[:sort] == "comment_sort"
       @posts= @posts.order(:comments_count)
