@@ -26,7 +26,7 @@
                   <iframe width="280" height="157" src=<%= post.ved %> frameborder="0" allowfullscreen></iframe>
               <% else %>
                   <% tit = image_tag("missing.png", size: "200x200") %>
-                  <%= link_to tit, post_path(post) %>
+                  <%= link_to tit, work_post_path(post) %>
               <% end %>
             </div>
             <div class="caption fixfather workpost">

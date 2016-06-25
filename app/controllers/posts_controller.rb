@@ -6,15 +6,10 @@ class PostsController < ApplicationController
   def index
     @page = params[:page] ||= "1"
     @categories = @category
-    if params[:category_id]
-      @posts = Category.find(params[:category_id]).posts
+    if params[:post_category_id]
+      @posts = PostCategory.find(params[:post_category_id]).posts.page(params[:page]).per(9)
     else
       @posts = Post.page(params[:page]).per(9)
-    end
-    if params[:sort] == "comment_sort"
-      @posts= @posts.order(:comments_count)
-    else
-      @posts= @posts.order(created_at: :desc)
     end
 
   end
@@ -30,9 +25,25 @@ class PostsController < ApplicationController
     end
   end
   def show
+
     @categories = @category
     @comment = Comment.new
     @comments =  @post.comments
+    if params[:post_category_id]
+      @name = "相關文章"
+      posts = PostCategory.find(params[:post_category_id]).posts
+      posts -= [@post]
+      @posts = posts.sample(3)
+    else
+      @name = "推薦文章"
+
+
+      posts = Post.all
+
+      posts -= [@post]
+      @posts = posts.sample(3)
+    end
+
 
 
   end

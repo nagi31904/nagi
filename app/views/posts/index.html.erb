@@ -11,53 +11,47 @@
         </li>
       </ul>
   <% end %>
-  <!--
-  <ul class="nav nav-tabs">
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
-    <li role="presentation" class="disabled"><a href="#">Disabled link</a></li>
+
+  <ul class="nav nav-tabs nav-justified tag">
+    <% @categories.each do |post_category| %>
+        <li role="presentation">
+          <%= link_to post_category.title, posts_path(:post_category_id => post_category.id) %>
+        </li>
+
+    <% end %>
   </ul>
-  -->
+
   <div class="indexdiv">
     <% @posts.each do |post| %>
         <div class="index_post row thumbnail">
           <div class="img col-md-3">
             <% if post.img.exists? %>
                 <% tit = image_tag(post.img.url(:medium)) %>
-                <%= link_to tit, post_path(post, :page => params[:page]) %>
+                <%= link_to tit, post_path(post, :page => params[:page], :post_category_id => params[:post_category_id]) %>
             <% else %>
                 <% tit = image_tag("missing.png", size: "200x200") %>
-                <%= link_to tit, post_path(post) %>
+                <%= link_to tit, post_path(post, :post_category_id => params[:post_category_id]) %>
             <% end %>
           </div>
           <div class="col-md-8 fixfather">
             <div class="over">
-            <div class="title">
-              <% if post.title != "" %>
-                  <h3 class="title float"> <%= link_to post.title, post_path(post, :page => params[:page]) %></h3>
-              <% else %>
-                  <h3 class="title float"> <%= link_to "no title", post_path(post, :page => params[:page]) %></h3>
-              <% end %>
-            </div>
-            <div class="Article">
-              <%= simple_format(post.description) %>
-            </div>
+              <div class="title">
+                <% if post.title != "" %>
+                    <h3 class="title float"> <%= link_to post.title, post_path(post, :page => params[:page], :post_category_id => params[:post_category_id]) %></h3>
+                <% else %>
+                    <h3 class="title float"> <%= link_to "no title", post_path(post, :page => params[:page], :post_category_id => params[:post_category_id]) %></h3>
+                <% end %>
               </div>
-            <%= link_to 'READ MORE', post_path(post, :page => params[:page]), :class => "btn btn-default fixed" %>
+              <div class="Article">
+                <%= simple_format(post.description) %>
+              </div>
+            </div>
+            <%= link_to 'READ MORE', post_path(post, :page => params[:page], :post_category_id => params[:post_category_id]), :class => "btn btn-default fixed" %>
           </div>
         </div>
 
     <% end %>
 
-    <%= paginate @posts,:theme => 'twitter-bootstrap-3' %>
+    <%= paginate @posts, :theme => 'twitter-bootstrap-3' %>
   </div>
 </div>

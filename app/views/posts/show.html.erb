@@ -33,8 +33,37 @@
   <% end %>
 
   <h3>ARTICLE</h3>
-  <div class="description">
-    <%= simple_format(@post.description) %>
+  <div class="row article">
+    <div class="col-md-8 description article ">
+      <%= simple_format(@post.description) %>
+    </div>
+    <div class="col-md-4 description article center push">
+      <p class="textcenter"><%= @name %></p>
+      <% @posts.each do |post| %>
+          <div class=" col-md-10 postshow">
+            <div class="thumbnail">
+              <div class="postshowimg">
+                <% if post.img.exists? && post.ved? %>
+                    <% tit = image_tag(post.img.url(:medium)) %>
+                    <%= link_to tit, post_path(post, :post_category_id => params[:post_category_id]) %>
+                <% else %>
+                    <% tit = image_tag("missing.png", size: "200x200") %>
+                    <%= link_to tit, post_path(post, :post_category_id => params[:post_category_id]) %>
+                <% end %>
+              </div>
+              <div class=" ">
+                <div class="over">
+                  <p><%= link_to post.title, post_path(post, :post_category_id => params[:post_category_id]) %></p>
+                  <p>
+                    <%= simple_format(post.description) %>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+      <% end %>
+    </div>
   </div>
 
 
@@ -59,10 +88,10 @@
             </div>
             <div class="col-md-4">
               <p>
-              <% if current_user == comment.user %>
-                  <%= link_to 'edit', edit_post_comment_path(@post, comment), :class => "btn btn-default" %>
-                  <%= link_to 'D belete', post_comment_path(@post, comment, :page => @page), :remote => true, :method => :delete, :class => "btn btn-danger" %>
-              <% end %>
+                <% if current_user == comment.user %>
+                    <%= link_to 'edit', edit_post_comment_path(@post, comment), :class => "btn btn-default" %>
+                    <%= link_to 'D belete', post_comment_path(@post, comment, :page => @page), :remote => true, :method => :delete, :class => "btn btn-danger" %>
+                <% end %>
               </p>
               <%= comment.display_timezone %>
             </div>
