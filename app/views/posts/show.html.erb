@@ -43,7 +43,7 @@
           <div class=" col-md-10 postshow">
             <div class="thumbnail">
               <div class="postshowimg">
-                <% if post.img.exists? && post.ved? %>
+                <% if post.img.exists? %>
                     <% tit = image_tag(post.img.url(:medium)) %>
                     <%= link_to tit, post_path(post, :post_category_id => params[:post_category_id]) %>
                 <% else %>
