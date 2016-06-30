@@ -7,9 +7,11 @@ class PostsController < ApplicationController
     @page = params[:page] ||= "1"
     @categories = @category
     if params[:post_category_id]
-      @posts = PostCategory.find(params[:post_category_id]).posts.page(params[:page]).per(9)
+      posts = PostCategory.find(params[:post_category_id]).posts
+      @posts= posts.order(created_at: :desc).page(params[:page]).per(9)
     else
-      @posts = Post.page(params[:page]).per(9)
+      posts = Post.all
+      @posts= posts.order(created_at: :desc).page(params[:page]).per(9)
     end
 
   end
