@@ -28,7 +28,7 @@
     overflow: hidden;
 }
 .postshow{
-    margin: 10px 30px;
+    margin: 20px 30px;
     height: 220px;
 }
 .postshowimg{
@@ -37,7 +37,7 @@
     text-align: center;
 }
 .article{
-    
+
 
 }
 @media only screen and (max-width: 990px) {
