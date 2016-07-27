@@ -15,6 +15,7 @@ class PostsController < ApplicationController
     end
 
   end
+
   def new
     @post = Post.new
   end
@@ -26,6 +27,7 @@ class PostsController < ApplicationController
       render :action => :new
     end
   end
+
   def show
 
     @categories = @category
@@ -78,9 +80,11 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :description,:img, :post_category_ids =>[])
   end
+
   def set_category
     @category = PostCategory.all
   end
+
   def set_post
     @post = Post.find(params[:id])
   end
