@@ -7,7 +7,6 @@
     <list default="true" id="17abe377-3ed9-42e3-a893-13352b6218ec" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/workpost.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/workpost.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/posts_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/posts_controller.rb" />
     </list>
     <ignored path="nagi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -118,7 +117,7 @@
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/workpost.css">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.70737606">
-              <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+              <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -1517,7 +1516,7 @@
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/workpost.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.70737606">
-          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+          <caret line="39" column="4" selection-start-line="39" selection-start-column="4" selection-end-line="39" selection-end-column="4" />
           <folding />
         </state>
       </provider>
